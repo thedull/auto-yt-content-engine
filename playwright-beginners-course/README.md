@@ -25,6 +25,8 @@ playwright-beginners-course/
 
 A reveal.js Markdown deck. ~190 slides across 18 modules + 4 appendices. JS/TS is the primary track; Python, Java, .NET in appendices. Speaker notes cite the source video for every claim. See [How to run the slides](#how-to-run-the-slides).
 
+Built via the `research-to-course` skill (see [Regenerating the deck](#regenerating-the-deck) below) — not part of the auto-pipeline because course curation is heavy (~1 hour of model time) and not every research bundle needs a presentation.
+
 ### `master-summary.md`
 
 A research synthesis (themes, consensus, disagreements, gaps) across all 15 sources. Useful as a quick-reference companion to the deck — read this if you want the *what* without the *how*.
@@ -156,7 +158,7 @@ Full metadata in `videos.json`.
 
 ## Regenerating from scratch
 
-This folder was produced by the `youtube-research-pipeline` skill at `~/.claude/skills/youtube-research-pipeline/`. To rebuild from scratch (or run the pipeline on a different topic):
+The research bundle (transcripts, master summary, NotebookLM artifacts) was produced by the `youtube-research-pipeline` skill. To rebuild from scratch (or run the pipeline on a different topic):
 
 ```
 /youtube-research-pipeline <subject>, top <N>, save to <path>
@@ -169,6 +171,14 @@ Example:
 ```
 
 The pipeline is idempotent — re-running it skips work already on disk.
+
+### Regenerating the deck
+
+`course.md` and the SVG assets are *not* produced by the pipeline. They come from a separate skill, `research-to-course`, which curates an existing research bundle into a presentable reveal.js deck. To rebuild just the deck:
+
+> "Turn the markdowns in `./playwright-beginners-course/` into a reveal.js course deck."
+
+The skill will ask four questions up-front (audience, depth, language scope, adjacent topics in scope) and then write a fresh `course.md` plus any SVG assets. The synthesis is heavy — expect a long session and ~3000-5000 lines of output for a comprehensive course.
 
 ---
 

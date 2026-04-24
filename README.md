@@ -19,7 +19,8 @@ Content/
 │   │   ├── youtube-research-pipeline/   # orchestrator (/youtube-research-pipeline)
 │   │   ├── youtube-transcript/          # captions + whisper fallback
 │   │   ├── transcript-to-markdown/      # structure raw transcripts
-│   │   └── notebooklm/                  # NotebookLM CLI wrapper
+│   │   ├── notebooklm/                  # NotebookLM CLI wrapper
+│   │   └── research-to-course/          # bundle → curated reveal.js deck
 │   ├── setup.sh                     # recreates Python venvs from requirements
 │   └── settings.local.json          # per-clone settings (gitignored)
 ├── playwright-beginners-course/     # the example output (reveal.js deck + assets)
@@ -87,6 +88,16 @@ Every stage is idempotent; re-invoking with the same output path resumes from th
 
 See [`playwright-beginners-course/README.md`](./playwright-beginners-course/README.md) for a complete worked example — the 15-video Playwright research bundle that shipped with this repo.
 
+### Optional follow-up: build a presentable course deck
+
+The pipeline output is a research bundle (transcripts, master summary, NotebookLM artifacts) — useful for reference but not a polished presentation. To turn the same corpus into a hand-curated reveal.js slide deck (~120-180 slides), invoke the `research-to-course` skill:
+
+> "Turn the markdown files in `./playwright-beginners-course/` into a reveal.js course deck."
+
+You'll be asked four questions up-front (audience, depth, language scope, adjacent topics), then Claude synthesizes the corpus into a single `course.md` plus any SVG diagrams. Render with `npx reveal-md <bundle>/course.md --watch`.
+
+Kept separate from the pipeline because the synthesis is heavy (~1 hour of model time) and not every research project warrants a full deck.
+
 ---
 
 ## Skill overview
@@ -97,8 +108,9 @@ See [`playwright-beginners-course/README.md`](./playwright-beginners-course/READ
 | `youtube-transcript` | *(internal)* | Fetches YouTube captions; whisper-transcribes if none |
 | `transcript-to-markdown` | *(internal)* | Structures raw transcripts into readable Markdown |
 | `notebooklm` | *(internal + CLI)* | Wraps the `notebooklm-py` CLI for notebook management |
+| `research-to-course` | *(intent-based)* | Curates a research bundle into a reveal.js course deck |
 
-The three "internal" skills are directly invokable too — check each skill's `SKILL.md` for standalone usage.
+The internal skills are directly invokable too — check each skill's `SKILL.md` for standalone usage.
 
 ---
 
