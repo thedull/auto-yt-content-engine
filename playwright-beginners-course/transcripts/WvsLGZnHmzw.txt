@@ -1,0 +1,521 @@
+---
+URL: https://www.youtube.com/watch?v=WvsLGZnHmzw
+Title: Get Started with Playwright and VS Code (2025 edition)
+Channel: Playwright
+ChannelURL: https://www.youtube.com/@Playwrightdev
+Uploaded: 2025-08-04
+Duration: 19:45
+Language: en-US
+VideoID: WvsLGZnHmzw
+Source: youtube-captions (en-orig)
+---
+
+Hey everyone, let's get started with
+Playright using the VS Code extension.
+Now over here when clicking on the
+extensions, we can search for Playright
+and make sure you choose the one by
+Microsoft and then we can go ahead and
+install the extension. So once we have
+the extension installed, you can see it
+there's no files, nothing is there. So
+I've just got an extension. Now I need
+to use it. So now I need to install
+Playright. So I can do that with the
+help of the extension and I can just
+open the command panel and then just
+write install playride or just select it
+from here. I've already used it before.
+So there we go. Test install Playride.
+This will now ask me which browsers I
+want to install. Chromium, Firefox,
+WebKit. I can choose all of them or
+maybe I only want to install the
+Chromium browser. Up to you. Um I prefer
+to use TypeScript and we highly
+recommend that. Um so but if you don't
+want to, you can always select use
+JavaScript. And then we have the add
+GitHub actions workflow. This is really
+really cool because it will add a
+workflow for GitHub. But if you're not
+using that, feel free to uncheck it.
+Let's go ahead and just select the
+defaults and press okay. And you'll see
+now um over here we are installing all
+the browsers. And you can see my files
+just being um created there for me. So
+my project has just been initialized.
+And let's take a quick look at what we
+have. We have the GitHub folder with a
+playright yaml workflow in here. It's
+basically called playright tests and on
+the push or pull request of your
+branches, it's going to go ahead and run
+those tests straight out of the box.
+Very very easy setup for you. You just
+select that button and bang, it's done.
+So that's really cool. Obviously your
+node modules folder and then uh and you
+can see in here what we got playride,
+playright core, etc.
+We've got a test folder with an example
+spec.ts. So in here we have a example
+test that we can play around with. And
+then we also have a bigger example that
+we can play around with which is the
+demo to do app test uh which you can
+dive deep into and check that out. And
+then I have a package lock.json
+package.json. Let's have a look at in
+here we got playright test and types for
+node. And then we have our playright
+config. Our config is where everything
+um is configurable. We can change things
+that we want to. For example, the test
+directory is called tests as we see
+here. So you could change that if you
+already had a test directory. Um fully
+parallel is true. So run tests and files
+in parallel. Um for the build and CI
+retries, uh workers um all this can be
+changed. The report, the HTML report is
+included by default. So you get a nice
+report when your tests are passing or
+failing. and um using the trace on first
+retry. So, we're going to create a trace
+viewer on the first retry, but you could
+go ahead and change that to always on if
+you wanted to. And then you've got your
+projects. We installed Chromium,
+Firefox, and WebKit. Here in the config,
+we call this projects. So these are your
+browsers but they're projects because
+you could have different projects like
+setup projects or you know we have a
+mobile viewports as well that you could
+go ahead and um uncomment this and you
+could then test out your application on
+mobile viewports. So that's really cool.
+That's all in the config. And then down
+below here you could uncheck this if you
+wanted to run a web server locally and
+then just have it spin up a local host
+3000 as you're running your tests. So
+that's the config. Very very cool. Now,
+let's go ahead and see Playright in
+action. So, the first thing we can do is
+um let's go ahead and run a test. So,
+you'll see now that I've installed the
+Playright extension. I've got this nice
+testing toolbar here. I can click on
+this and now I've got the test. And you
+can see that I have um the tests, the
+example one that's we looked at in a few
+minutes ago. Um there's the test we
+have. And we can go ahead and run the
+test from here. So, you just click this
+button here to just go ahead and run the
+tests. And you can see I have a test um
+results section over here and that's
+basically showing me the tests have
+passed. Um and I can go ahead and I can
+run it from either here or from the
+actual uh sidebar here. Now I have
+another browser window open. So let's go
+ahead and just make this a little
+smaller over here so you can see exactly
+what's going on on my other screen. I'll
+pull this across. There's a little
+browser just popped up with the actual
+test results. Let me just show you as I
+run this test again. Uh you'll see that
+that browser is opening up. Why is that
+happening? How is that happening? Um
+this is because down here you'll have
+let's bring this a little higher. You
+have um show browser checked. So if I've
+got show browser unchecked and I close
+that, the browser's gone. Now when I go
+and run that test, it's in headless mode
+just like you would on a CI environment.
+You have no UI. you cannot see what's
+happening, but you can just check the
+results down here in the test results
+section. So maybe that's a flow that you
+want to use because you don't need to
+actually see the browser open. But if
+you do want to see the browser open,
+just click on that, go ahead and run
+your test, and it will pop up that
+browser for you. Now, Playright is very,
+very fast. And let me show you in
+another example. If uh we go ahead and
+take this demo to-do app and just drag
+and drop it into the test folder. So now
+we have another test in our folder. So,
+this is my example here. And if I go
+ahead and let's take this test here. And
+we'll just run that first test there.
+It's going to open up that to-do app.
+And it's going to start doing it. That
+was really quick. There's already two
+things in there. Let's go ahead and just
+run that again. So, you can really see
+and did super fast, right? So, as you
+are playing around with this, you might
+decide, you know what, this browser play
+just does things too fast. I can't keep
+track of it. Well, you have another
+option, which is the show trace viewer.
+So you can click the show trace viewer
+instead. And now when I go ahead and run
+that test, now I have a full trace. This
+is really cool. Let me zoom in here so
+you can see it a little bit better. This
+is a full trace of the test that we just
+ran. Over here you have actions. You can
+buy some cheese. You can see it's uh the
+fill get by placeholders there. And uh
+then when you press enter, the buy some
+cheese is filled in. You've got the
+action before after. So, we could look
+at, you know, what happened here, after,
+before, and see the difference uh in how
+your page state changed uh what you're
+expecting. And you can see down here the
+actual co um source code as you're going
+along. But you've also got other things
+down here like a locator. Well, I can
+actually go ahead and pick a locator
+here. And you can see now that there's a
+get by test ID here. Uh but I might want
+to choose a different one. And uh you
+can go along and just start choosing
+different locators there. And you can
+see the area snapshot in case you're
+doing um snapshot testing. You've got
+the area snapshot here as well. And you
+can then just go ahead and copy that
+into your code and modify your test etc.
+Now you've also got the call. You're
+expecting it to be empty, the time, the
+parameters, um the return value. Uh
+you've also got the log, so what
+happened, the errors, if there were any,
+we have no errors because we were
+perfect tests. Uh you got the console,
+which also could give console logs from
+your test or from the browser. Then
+you've got your network which you can
+filter and change and have a look at the
+different things um and and type in
+here. Just look at the base CSS, see
+what what's going on at each point. You
+can also select a specific area in time
+and scroll along there and then see when
+are those network requests coming in. So
+they're probably coming in a little bit
+earlier. Um and you can focus on
+different points and see how here the
+actions is changing as I'm selecting
+different parts of my test to focus on.
+So that's also uh very cool there as
+well. Um so that was network. You've
+also got source. That's a source code.
+And then if you had any attachments,
+they would be shown here. Another thing
+you can also do is click on this button
+here and you'll pop that out into an
+actual DOM snapshot where you can just
+go ahead and inspect it and you could
+like totally uh come along here and play
+with things and remove the box shadow.
+Um change the the the styles. Um I don't
+know. Let's do red, for example, and
+really kind of like play around with
+things. Um, and just kind of like see
+it. But this is like you testing and,
+you know, debugging. So really, really
+good tool for debugging and for checking
+out your test. You've got some settings
+there. You could also put it in dark
+mode or display a canvas content if you
+needed that. So that's pretty cool.
+That's the trace viewer and that's the
+uh option here. So a couple of other
+things that I want to point out. We have
+our projects. remember that we called
+like our browsers um in our config were
+projects and we've got chromium fire kit
+firefox and webkit. So again if we look
+at our playright config file here um you
+will see that they are the ones we have.
+So if we were to let's have a look at
+this one. Let's uncomment this one out.
+And now we should get another option in
+our projects. Yes, we get mobile chrome
+here. And again we can call this what we
+want. So mobile chrome uh we could call
+it mobile everything. I don't know just
+just just to see that the the change
+here. You can see that this has come up.
+Okay. So that's how you would modify
+those. Uh and then you could decide to
+run all of those tests. Let's just click
+on show browser just for a second. And
+let's just do the simple example test.
+Um really really easy here. And you'll
+see now this will go ahead and test
+those on all those browsers. And you'll
+see all those browsers are going to uh
+pop up and check them out. Firefox has
+just appeared there on the other window.
+I pull it across. WebKit uh has just
+appeared there. The mobile one has just
+appeared. So there is a nice way of just
+testing across the different browsers
+very very quickly.
+And um let me go ahead and close all
+those browsers. You could just actually
+click on this button as well. If we go
+ahead and run that, let me do that again
+with this test here. So if you're
+checking across across the different
+browsers and all these browser windows
+pops up um you can go along and um just
+close the browsers here. Nice quick and
+easy way. Uh reveal test is basically
+what uh we have showing here. Let me
+just pull this up into full screen mode.
+So we have our test results area here.
+And we can also run our tests from here.
+So if we wanted to run only on Firefox
+here, I could do it um over here. If I
+check down here, I can run it from here,
+but I can also run it over here. So,
+there we go. That's running it just on
+Firefox. Um, again, that's popped up
+another window because I have it there.
+I can close all browsers. And if I went
+ahead and close this and then I realized
+I actually want to see what's going on,
+I can just click on that button, reveal
+the test output. So, that's kind of
+really cool here. And I could go back
+through the other results and see what
+was going on um at each point in time
+and what happened. Now there's a little
+playright section here. What's this
+about? This is my locator picker. So
+remember we talked about the locator
+picker in the trace viewer. But we can
+also pick the locator um from here or
+from this box here. Um let's run a test
+to do it. So let's go ahead and let's
+just uncheck these so we just have
+Chromium working just so we can work on
+one thing. And let's click on um this
+one here. Let's do on the demo to-do
+app. Actually, let's go and click uh the
+editing. Let's take that one. So, let me
+make this a little bit smaller.
+And we'll pull this across. So, here's
+the test that just ran. And I can go
+ahead and like I showed you, I can click
+on the pick locator button. And now, as
+this hover over here, it's going to
+highlight all the locators. Get by text.
+Get by text. We've got the get by roll
+heading name to-dos. We've got this get
+by text mark all as complete. Maybe
+that's the one that I wanted um to do.
+And then I can go ahead and I can copy.
+I can also select copy on pick. Um and I
+can just take this. Maybe I want this
+locator or maybe I want the area one
+depending on what I want to do in my
+test, what I want to modify and change,
+etc. This is really great for debugging.
+So if I go back um to here, let's go
+back along and modify one of my tests.
+So let's make this give me more space.
+There we go. And let's see. This is the
+one we're working on. So, let's click on
+this test here.
+Telling me that if I've changed that, I
+I need to actually update the test. But
+I just wanted to make this test fail.
+So, let's go ahead and uh again, we'll
+see over here we've got our sparkly icon
+here, which I could go ahead and click
+there. And um it's going to go ahead and
+fix that error for me. So this issue is
+in the could should save edits on blur
+test. It expects by some sausages but
+actually gets by some cheese twice. The
+problem is the test is setting a new
+text but checking for incorrect values.
+Now again um AI might change things in
+the way you want it to or the way you
+don't um because it's decided that if I
+want cheese it's going to put cheese
+everywhere. Obviously it's not going to
+bring the sausages back. So, but again,
+it's a really uh good way because my
+test is now um going to pass and that's
+what I care about. So, really good way
+of just uh fixing things with AI. Again,
+um over here you've got that sparkly
+icon button. It's not going to appear
+unless you break a test. So, here um
+let's just make that a little bigger.
+You can try and look for this button and
+it is not there. So, until I go back and
+say, I don't know, ice cream.
+Let's buy some ice cream. And then let's
+go run that test. That test is going to
+fail. And this button is going to change
+in a second. It's going to appear. Then
+I'm going to have the um fix with AI.
+So, there is that fix it AI icon. I can
+click on that and it will go ahead and
+fix it. Um, great. So again, that's a
+really good way. And you obviously
+you're in VS Code, so you can choose the
+model that you wanted to. So you can
+choose uh 4.1 if you wanted to. Make
+sure that you're choosing models that
+are included. Um and you can stop it and
+um change, cancel, etc. Um so that's
+really cool. Okay, let's go ahead and
+accept those changes because I
+definitely prefer ice cream to cheese.
+And uh our test will now pass.
+Fantastic. Um, again, our browser window
+is open. We've got our ice cream here.
+We've also got cheese there. And again,
+we can pick our locator. We can come
+along here, hover over things, pick our
+locator, and uh, and then we'll make
+sure that, you know, this is, yeah, this
+is the one we want. Get by text. Uh, buy
+some ice cream. Okay. Um, we might want
+to change things and improve things and
+create new tests. And we can do that by
+clicking on the record new button. Let's
+go ahead and click that. And that will
+open up. um it will create a file for us
+called a test one.spec.ts. It's already
+done the import and it's um created the
+test name and it's ready to record. You
+can see playright codegen is recording.
+So I can go over here now. The only
+thing is I don't have anything uh set up
+here. So I've got to actually put in the
+URL that I want to do each time. Now I
+don't have my demo to do app open. So,
+if I wanted to, I could go along um to
+that test and copy that URL. Just uh I
+could put in any URL, but I'm just going
+to copy in this URL here. So, let's go
+ahead and do that. And then we'll go
+back and open that file. So, we make
+sure we can see what's going on. And
+let's paste that in here. And you can
+see that the first thing that it's done
+is it's generated a weight page. Go to
+um the URL. So, let's go along in here
+and let's say buy some
+ice cream.
+There we go. And let's buy some
+chocolate as well.
+So now you can see it's generated the uh
+text box. What needs to be done? Filled.
+Buy some ice cream. Enter. Uh buy some
+cheese. No, by some chocolate. I bought
+some chocolate. And then we can click on
+the um selected. We've already bought
+some ice cream. And again we can do some
+assertions. And we can assert that uh
+buy some chocolate is visible. We can
+assert that this is visible. And then if
+we can, you know, delete something and
+then we can just make sure that buy some
+chocolate is visible. We could also do
+some other um assertions here as well.
+So um there's also the area snapshot
+that we could go ahead and click on this
+one here. And let's go ahead and cancel
+that. We've see we've got this great
+test that's just been written. There's
+our to match area snapshot as well. So
+this is fantastic. Let's go ahead and
+run that test and let's see if it
+passed. Now that browser window is open
+and that was really really fast. Let's
+see if I can uh make this um viewable
+for you so you can see uh what's going
+on um as it runs through it in a very
+fast manner. And I need more space here.
+There we go.
+Okay. Um where's my to-do test? There we
+go. Are you ready? Watch this everyone.
+So super fast.
+Right. That's the beauty of playrite.
+It's just too fast. Um, so again, that's
+really cool. We can go ahead and um
+close our browsers or um run that test
+using the um trace viewer and see.
+And there you go. There's our test.
+Let's just zoom in there. And uh let's
+go ahead and just go through all our
+actions. See what's going on. There's
+our ice cream, our enter. And uh we can,
+you know, make this smaller. to give
+some more space to this area etc. and uh
+you know filter through as we want or go
+over the timeline. So lots of really
+cool things you can do with the VS Code
+extension.
+So another thing I can do is I can
+record it cursor. So let's go ahead and
+just um make sure our browser is open
+instead of our trace viewer and I can go
+ahead and let's put the cursor here. But
+let's go ahead and run the test first.
+So we go ahead and run the test. What
+that does is it's going to bring up that
+test over here. And then we can go back.
+Let's just close this. And let's record
+a cursor. The cursor is here. And
+I want to go ahead here. And then I can
+basically go along and click on the
+active uh click on the completed. And I
+could um you know assert that uh that's
+there. And this has added this in now
+into this part of the test. And I can go
+ahead and then you know run that test
+and follow along as it does what it does
+and uh make sure that all those um are
+doing as they should. Now this is all
+going to fail because I I created tests
+in the middle of the test but I could go
+ahead and then you know use my AI to go
+ahead and fix that and uh improve my my
+tests um as I go along. So again, VS
+Code extension, really, really cool. Uh
+really good way of getting um your tests
+up and running and just really playing
+around with things and seeing things in
+action. So have fun with the VS Code
+extension. Make sure you're generating
+tests, writing tests, editing tests,
+playing with tests, um picking locators.
+It's all there. And there's update
+snapshots um there for you. Run global
+setup on each one um
+etc. So check that out. VS Code
+extension for Playright. Thanks
+everyone. Have fun. See you in the next
+video.

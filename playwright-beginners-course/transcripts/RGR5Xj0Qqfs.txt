@@ -1,0 +1,605 @@
+---
+URL: https://www.youtube.com/watch?v=RGR5Xj0Qqfs
+Title: Playwright Web Scraping + CAPTCHA Bypass Tutorial
+Channel: Python Simplified
+ChannelURL: https://www.youtube.com/@PythonSimplified
+Uploaded: 2025-02-07
+Duration: 20:31
+Language: en
+VideoID: RGR5Xj0Qqfs
+Source: youtube-captions (en-CA)
+---
+
+Hello everyone.
+So in a recent poll, 47% of
+you have voted for a web
+scraping and captcha
+solving tutorial using playwright.
+And since your wish is my command,
+that's exactly what we'll do today.
+So in addition to learning the basics
+of playwright, we will also create a mini
+project downloading a whole bunch
+of research papers using code only.
+No hands.
+And the cherry on top is a state
+of the art Captcha solving system.
+So if you're ready, let's roll.
+So let's begin with a basic syntax
+where we import
+the class of sync playwright,
+and then we initialize it
+with sync underscore playwright,
+followed by an empty set of round brackets
+and calling the start method on it.
+Then we will assign this expression
+to pw, as in playwright.
+Now, if we'd like to access a website
+through our code,
+we will first need a browser object.
+In my case pw.firefox,
+on which we will call the launch method.
+Then we will assign it to browser.
+Now, since we are initializing
+a browser object,
+we will also need to collapse it
+as soon as we are done using it.
+So at the very bottom of our code
+we will call browser dot close.
+Okay, but what should we do in between.
+Well how about we start with a new tab
+which we can do with browser
+dot new underscore page
+which we will assign to page.
+Then we can use this tab to navigate
+to any kind of website.
+In my case page.goto to which we will pass
+a string of http google.com.
+Now to make sure everything worked,
+we will go ahead and print
+the content of the page with print page
+dot content followed by an empty set
+of round brackets, and this will print
+the entire source code.
+Additionally, we can go ahead and print
+the page dot title,
+and we can even do a nice screenshot
+of the page with page dot screenshot,
+giving it the path of example dot png.
+You can choose any kind of name.
+Let's save this file and let's
+go ahead and run it in our terminal.
+In my case
+I have a WSL terminal embedded into my IDE
+and because my head is going to block
+most of it, let me enlarge it like so.
+Okay.
+So the first thing we do here
+is we create a nice working environment.
+In my case with Conda create dash n
+I will call this environment scraper.
+And I will install Python 3.11 in it.
+Then we'll go ahead and activate our new
+environment with conda activate scraper.
+Now once we are inside
+our brand new environment we'll go ahead
+and install playwright
+with pip install pytest dash playwright.
+But that's not all.
+We will also need to install playwrights
+browsers with playwright install.
+And even though we can select
+a specific browser in my case
+Firefox, I'll just install all of them.
+Why not?
+Now, once the browsers are installed,
+we will also need to install
+some dependencies, in my case
+with playwright.
+Actually, let's pull our recent command
+and after playwright
+install we'll just add a dash
+and then deps as in dependencies.
+And beautiful!
+Now playwright is officially installed
+with all these nice little commands
+and we can run our code!
+in my case
+with Python3 quickstart.py, and beautiful!
+Here's our source code.
+You can verify it later.
+It's very long.
+And here is our page title
+which is Google. Yay!
+Now what happened to our screenshot?
+Let's
+go ahead and open the containing folder.
+Let's refresh it. And beautiful.
+Here's our example PNG, and perfect!
+Everything worked like a charm.
+But the only problem is
+we didn't actually see a Firefox browser
+popping and navigating to Google.
+So in technical terms, we've done
+something called headless browsing
+where we fetch no results
+without observing the actual process.
+Now, if you'd like to physically
+see how your browser is
+being automated, you will need something
+called a WebDriver.
+In the case of Firefox,
+it is called the Gecko driver
+and you can find it on GitHub.
+Just navigate to the release section
+and choose the release
+that best suits your operating system.
+In the case of all,
+that would be Linux 64.
+So let's go ahead and click it.
+Then we will extract it in the same folder
+as our quickstart.
+Let's just drag and drop it. There you go.
+You know, once we have a WebDriver
+the only changes in code
+would be adding a headless property
+inside our Firefox launch method.
+Let's go ahead and edit headless
+and we'll set it to false.
+Now, since at this point in time, our code
+doesn't really do much, we will add
+another property called slow_mo
+and we will set it to 2000 milliseconds.
+And that way our WebDriver will pop
+and it will wait
+at least two seconds before it collapses.
+If we don't add this slow motion,
+we may not even see it.
+Okay, so let's save it
+and let's rerun our code once again.
+Let's just fetch it
+from our previous commands.
+And beautiful.
+Here's our Firefox WebDriver.
+It pops and it is gone after two seconds.
+As I mentioned earlier, we have the same
+results as before, just much more visual!
+and great! We are done with a quick start.
+We can officially move on
+with selecting elements.
+Now let's say we'd like to scrape some
+research papers from a site named archive.
+For this
+we will navigate to archive.org/search
+and let's have a look at the source code.
+So with a right click
+we will select inspect.
+We will then click on this arrow button.
+And we will highlight the input field
+which in our case would be an
+input element that has the placeholder
+text of search term.
+Now let's quickly
+copy this placeholder text
+and then back in our code
+we will first update the URL
+from google.com to Arxiv
+That's how they spell it.
+Dot org / search.
+And then we can select our input.
+To do this
+we will type page dot get by placeholder
+to which we will pass the text
+we just copied.
+Now if we're already here,
+we might as well fill it with some text.
+In my case, I will call the fill
+method and I will pass it.
+The text of Neural Network.
+Now once we have filled our input
+with some text,
+we will need to submit it of course.
+So then back in our browser,
+let's have a look at this search element.
+And in our case we are dealing with a
+button that has the inner text of search.
+Easy peasy.
+Back in our code, right after we select
+by placeholder,
+we will select another element with page
+dot get by role
+this time
+and we will pass it the role of button.
+But in our case we're not just looking for
+any kind of button.
+We are looking for a very special one.
+So we will chain it with another selector.
+This time get by text
+and will of course pass it
+the text of search
+with a o, search
+with a capital S, I believe.
+And there you go. Yeah, it is a capital S.
+Okay, now once we select our button
+we might as well click it.
+So let's call the click method on it.
+Now to make sure our terminal stays
+nice and neat.
+We will get rid of this page
+content print statement.
+Let's save everything
+and let's give it a nice little run.
+And there you go.
+Here's our archive page.
+Here's our neural network search term.
+And oh no, something is wrong
+with our button.
+Let's see exactly what's going on here.
+And okay,
+it looks like instead of selecting
+a single button we selected two of them.
+So let's see how it looks like.
+And okay it looks like we have two buttons
+with the text of search.
+We have a red one at the very top,
+and we have a blue one right below it.
+So how exactly do we click
+on the second button.
+And we ignored the first one.
+So right before we call the click
+method let's add
+another method called s as in Antje okay.
+And this end method receives an index.
+In our case the index of the second
+button, which would be one
+because we start counting from zero
+of course.
+Let's save it okay.
+And this time it should work.
+Okay. Let's give it a run. Okay.
+No hands.
+Okay.
+It worked.
+We are successfully searching
+and navigating to a new page.
+Now let's say we want to download
+all these PDF documents that we got
+from the search results.
+And based on their source
+code, let's click on this PDF link.
+We can see that we're dealing
+with a bunch of anchor elements.
+And if we click on another one
+let's say this one,
+we can also see that
+they have a very similar URL.
+They all start with archive.org.
+Oh archive.org.
+Org slash PDF. Great.
+So let's select all of them now.
+In order to select them
+we will use something called an XPath,
+which is probably the most accurate way
+of describing elements.
+It can target elements
+that have specific property values.
+So for example all the paragraphs
+that have the class of authors.
+Now another benefit of XPath over
+other selectors is that it
+accepts approximate values.
+So we can use it to target elements
+that start with
+and with or simply contain
+a specific set of characters,
+which is exactly what we are looking for
+in our case.
+So back in our code, let's use an access
+to select all the PDF anchors on the page.
+For this we will type page dot locator,
+to which we will pass a string of XPath
+equals
+double slash A, which will select
+all the anchors on the page.
+But since we don't really care
+about all of them, let's narrow it down
+with a set of square brackets, and inside
+them we will call the contains function.
+Now this function receives two arguments.
+The first one is the property of
+href, and the
+second one is the pattern
+that we are searching for,
+or the set of characters
+that our value contains.
+In our case, a set of single quotes,
+and inside them
+arxiv.org/pdf.
+Now let's quickly assign
+this expression to links.
+And then to make sure it worked, let's
+print them below.
+Now spoiler alert
+the first time it's not going to work
+and we will see shortly why.
+So for link in links we will print
+the link dot
+get attribute in our case address.
+Now let's save it.
+Let's give it a quick run.
+Or actually before we do
+it, let's turn off the slow motion
+because we already know it works.
+We don't need to see it time and again.
+Right?
+Let's save it again. And now let's run it.
+And okay,
+as I promised, we are getting an error,
+specifically a type error
+because a locator object is not iterable.
+So let's turn it into one simply by
+calling the all method on our locator.
+Now, if we save everything
+and we give it another run,
+we are now getting a whole bunch
+of anchor elements in return.
+There you go, a very big list.
+Now let's copy one of them.
+Let's make sure
+we get a scientific article back.
+And beautiful we do.
+And if we scroll down, sure
+looks like it relates to neural networks.
+So great.
+Now the only task on our list
+is to download
+all these PDF documents
+and store them on our system.
+So let's create
+a new directory for our files.
+It will do so with mkdir
+and we'll call it data.
+Then instead of printing our address
+attribute,
+we will assign it to a local
+variable named URL.
+And then we will use a library
+named Urllib
+to download
+all these URLs in the form of files.
+So at the top of our code we will type
+from urllib dot request.
+We will import urlretrieve,
+which is a nice little function
+that I hope I spelled right.
+Okay, let's copy it.
+And then we will call it
+at the bottom of our for loop.
+Now this function receives two arguments.
+The first one is the URL itself,
+and the second one
+is the name of our file,
+which in our case starts with data slash,
+to which we will concatenate something
+unique.
+So how about the serial number
+at the end of our address attribute?
+Okay, we have this 13763.
+And I believe this one is unique.
+I sure hope so.
+Okay so back in our code
+we will focus on the last five characters
+of our URL string with URL
+from which we will slice
+all the characters
+before our index of minus five.
+Then we will of course
+concatenate the extension of dot pdf.
+Okay, let's save it.
+And if I have no typos
+then it should work.
+Let's give it a run
+and this one
+will take a bit of time
+because we're downloading 50 articles
+into our system and great,
+it looks like we are done.
+So let's navigate to our project folder.
+Let's refresh it.
+And we have a data directory
+with a whole bunch of PDF files.
+So let's have a look.
+And beautiful.
+It is an article that sure looks like
+it has to do with neural networks.
+How about some other files.
+Let's see the first one okay.
+And that's a PDF research paper as well.
+How about something in the middle.
+And fantastic.
+They are all research papers.
+Amazing.
+So we are done with the introduction
+to playwright.
+So let's move on with something
+a bit more professional now.
+So far we've been dealing
+with a very forgiving website.
+It never blocked our IP
+and it never stopped us with a Captcha.
+But what happens
+if we're scraping a website that does?
+So for example, here's one
+that uses Cloudflare
+protection, and essentially
+it will always know that we're not human.
+Or another example is a popular website
+like Walmart.com
+that just slaps us with a Captcha
+as soon as
+we are trying to access it,
+but it's not going to stop us.
+We'll just use a very powerful tool
+named Web Unlocker.
+Now, this tool uses a combination
+of proxies and Captcha solvers
+and all kinds of goodies
+to bypass site security.
+To use it,
+we will navigate to brightdata.com
+using the link in the description. Why?
+Because it gives you $15 of credits,
+which is far more than what
+you need to follow.
+Along with this tutorial,
+I've been using the web unlocker
+for about a week, and so far it cost me
+like $0.15 or something ridiculous.
+Now let's go ahead and click on product
+followed by the Web Unlocker API.
+We will then scroll down
+and we'll start our free trial.
+We'll of course log in.
+We will not change our password this time.
+And we'll click on proxies and scraping
+will then scroll down
+and we'll get started on the web
+Unlocker API.
+We will then choose a name for our zone.
+Let's say Maria's Zone.
+And then we will make sure
+that our Captcha solver is enabled.
+Now, if you're trying to scrape
+one of these websites,
+check out this not so long list.
+Okay, you will need some extra Unblockers.
+These are extra problematic domains,
+so you'll need to enable this premium
+domain section.
+In my case I'm not scraping one of them.
+So I'll just click on
+add and I will confirm.
+Great.
+Now one more thing we need to do
+is we need to generate an API key,
+which we can do from our account settings
+where we simply click on add token.
+We give ourselves some administrative
+privileges and we'll click on save.
+Now since I will delete this token
+as soon as I'm done filming
+this video, I'm just going to click exit.
+Usually you would save it on your system
+in a secure place.
+In my case it doesn't really matter.
+We will dismiss it now.
+Once we are done we will simply click on
+proxies and scraping.
+We will navigate to Maria's zone
+and all the credentials we need
+are here under this access details
+section.
+Great.
+So how do we specify them in our code.
+Let's go back there
+and let's create a new dictionary.
+We named proxies.
+Now this dictionary has a key of server
+as well as a key of username.
+And lastly a key of password.
+Now let's copy
+our credentials from Bright Data.
+So back in our access details we will copy
+the host which would be our server.
+Then we will copy the username
+which is this long string over here.
+And we will paste it as our username
+of course.
+Then lastly we will copy our password
+and we will paste it as well.
+Beautiful.
+Now the last thing we need to do here
+is we need to specify our proxies.
+When we launch our Firefox browser.
+For this we will add a property of proxy
+and we'll set it to proxies okay.
+And we will get rid of this space
+to keep things consistent.
+Beautiful.
+Now there's two more things I've added off
+camera.
+I basically located the search input
+and I filled it with some text.
+There you go. It should say testing.
+Now right underneath,
+instead of clicking on some buttons
+or submitting a form, I simply press
+the enter key, which should work as well.
+Okay, you can do it too. Great.
+Now let's save it.
+Okay.
+Oh, and there's one more thing
+you need to notice.
+Since we're using a bunch of proxies
+and some security bypassing mechanisms,
+it kind of makes sense
+to scrape the Http version of a site
+rather than the Https version,
+which is the secured one.
+Okay, so make sure you do so with http.
+Okay.
+Let's save it and let's give it a run.
+And there you go.
+Here's the ugly Http version of Walmart.
+And we have a bit of a delay here okay.
+We have a slow motion set to five seconds
+okay.
+So here's our testing text.
+And there you go.
+We are navigating to a new page.
+Amazing folks.
+We now know exactly how to use proxies.
+So let's try them.
+On the other site
+we've been trying to scrape before.
+The one with a Cloudflare protection.
+Okay, so instead of Walmart.com,
+it was something with geeks.
+Let me check. Hold on, I forgot.
+Okay, it was geek time. Let's do it.
+Geek time dot co dot il.
+Let's save it. Uhh!
+Save it! No!
+Come on, save it.
+Let's give it another run.
+Okay,
+it pops here for some reason and Yey!
+We don't have this Cloudflare page
+that prevents us
+from doing anything on this website.
+So folks, congratulations.
+We now know exactly how to bypass CAPTCHAs
+and annoying bot detecting mechanisms.
+No, my question to you is
+what kind of challenges
+are you facing with web scraping?
+And I'm sure this tutorial
+solved a lot of them,
+but what other blockers are you facing?
+Please let me know all your nightmare
+scenarios in the comments
+below and in my next tutorial
+I will try to tackle them.
+And thank you so much for watching!
+If you found this video helpful,
+please share it with the world and don't
+forget to leave it
+a huge thumbs up in all kinds of comments,
+especially comments about your web
+scraping challenges.
+Now, if you'd like to see
+more videos of this kind,
+you can always subscribe to my channel
+and turn on the notification bell.
+I'll see you soon in an awesome tutorial.
+So in the meanwhile, bye bye!

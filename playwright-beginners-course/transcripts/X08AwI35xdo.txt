@@ -1,0 +1,346 @@
+---
+URL: https://www.youtube.com/watch?v=X08AwI35xdo
+Title: Playwright vs Selenium: What Advantages Make Playwright the Winner in Automation Testing Battle 🏆
+Channel: Execute Automation
+ChannelURL: https://www.youtube.com/@ExecuteAutomation
+Uploaded: 2023-07-21
+Duration: 11:18
+Language: en-US
+VideoID: X08AwI35xdo
+Source: youtube-captions (en-orig)
+---
+
+hi guys my name is Karthik and I am from
+either automation.com and welcome to
+another video from our exit Automation
+and today in this video we'll be talking
+about playwright versus selenium and why
+playwright is really winning the
+automation testing game in 2023. so if
+you're new to Automation and if you
+really wanted to start using playwright
+instead of selenium that you have been
+using all these days this video is going
+to be really really helpful for you the
+first first important feature of
+playwright comparing to selenium is its
+speed because playwright is modern it is
+also much much faster than selenium due
+to its clean architecture because you
+know that selenium uses the Webdriver
+remote control interface which enables
+introspection and control of the user
+agent but in case of playwright
+playwright uses the modern Chrome
+devtool protocol which is much much
+faster than the seleniums on webdrive
+interface you may be thinking that
+selenium also has got the same exact
+feature which is nothing but the BD or
+the bi-directional protocol which also
+supports the CDP but you know what the
+actual implementation of selenium's BD
+and with the CDP is much much slower
+compared to the playwrights
+implementation because playwrights CDP
+is much mature compared to surname
+itself so that is the first reason why
+selenium is much slower than compared to
+playwright and playwright is amazingly
+fast and the second important reason why
+playwright is much much awesome is
+because playwright has native parallel
+execution support all test runs in
+worker processes and these processes are
+os processors running independently and
+orchestrated by the test Runner and all
+workers have identical environments and
+operating systems and browsers this is
+really really great because now you can
+see that you can run multiple tests in
+parallel same time and that is the real
+power of the whole parallel execution
+itself and you can see that the whole
+execution just now happened is the power
+of the parallel execution and you can
+specify number of worker thread you
+wanted to in the configuration which is
+also going to make your life much much
+easier so this is the native parallel
+execution support of playwright itself
+but you may be thinking that this
+parallaxation support is also available
+in selenium of course yes selenium also
+has got the parallel execution support
+using selenium grid but guess what you
+got to be changing a lot of code as well
+as you need to do a lot of configuration
+but that's out of box available in
+playwright the third most important
+feature playwright offers is the auto
+waiting in capability selenium does not
+really have the automatic weighting
+capability by itself like out of the box
+but playwright has got the automatic
+weighting capability out of the box as
+you can see this particular code
+execution which is currently executing
+is the code which is executing without
+any issues and that's the reason why the
+code actually executed without any
+problem but while we make any change in
+the code block and while we try to run
+the same exact code based what happens
+right now is you will see that there is
+going to be a waiting happening for the
+code execution and that is happening
+because of the automatic weighting
+mechanism already enabled within this
+particular playwright and you will see
+that there is a waiting being shown
+there and not only that these
+configuration can be configured in the
+playwrights configuration itself like
+how much time you got to be waiting for
+that particular execution to be happen
+so that is the real power of the
+playwright itself in terms of automatic
+rating mechanism and all these automatic
+waiting capabilities are nothing but the
+actionability operation that you can set
+within playwright and you will see that
+there are list of actionability items
+that you can set in the playwright so
+that every single actionability item
+like type check click select all these
+methods are automatically going to wait
+for you for a particular element to be
+available in the Dom to be rendered so
+that it can perform the operation this
+is the neat feature which player already
+offer out of the box which selenium does
+not the next feature which play it
+offers is the native playwright test
+feature this is something which is
+completely not available in selenium
+because every single time while you try
+to perform an execution of your selenium
+test you gotta be choosing any one of
+the test runner for example you need to
+have what is called as an end unit or
+test NG or X unit or Ms test depending
+upon the language that you are choosing
+to run the test you gotta be doing all
+these setup for you yourself even for
+the JavaScript you have to use a
+third-party desk Runner like mocha or
+jaspin something like that but in the
+case of playwright you don't have to do
+any such thing because in playwright it
+automatically comes with what is called
+as a playwright test Runner which has
+got what is called as the playwright
+test package which comes with a lot of
+different feature as you can see over
+here it has got the describe it also has
+got the skip this top and also the step
+and you can do all the fixer
+capabilities within the test so it also
+has the capability to provide you the
+hook as well as the before hook and
+after hook something like that so you
+can set every single thing within the
+playwright test which is another amazing
+capability which is available out of the
+box in playwright the next most
+interesting feature which playwright
+actually offers which setting does not
+offer is the reporting capability you
+will notice that every single time while
+you run the test execution you need to
+have a test result or a report which is
+going to show you what really happened
+during the test execution this is
+something probably every test engineer
+really require but selenium does not
+offer this feature out of the box and
+you can see that in playwright over here
+every time while we try to execute the
+test execution while the whole test
+execution completes it can be a parallel
+test or whatever it is you can just do
+this sure report option and then you can
+see the whole report coming up the whole
+HTML report which is going to include
+not only just the report but also
+includes the video the screenshot it
+also includes the retry of the test
+which is going to happen so play it also
+support native retries of your test
+execution if it fails like if it's a
+flaky test it's going to retry the test
+for you to ensure that the test passes
+next time so even that operation is
+going to be captured within the
+playwright test result report and there
+are so many different reporting options
+available like Dart report and there is
+a line report HTML report and you can
+also create a lot of custom reports
+within this playwright test like allu
+report and it is very very highly
+extendable and quite awesome then
+compared to the report that you can use
+with selenium so that is another great
+feature which player does offer which
+syrinium is actually lacking in it and
+the next feature which I probably need
+to call it out because we have been
+touching so many times the configuration
+playwright can be completely configured
+from one single place which is nothing
+but the playwright configuration because
+you can see that there is a mammoth of
+feature which playwright does offer and
+all these features can be easily
+customized in one single place you can
+control the whole operation of
+playwright in one single place which is
+nothing but the playwright configuration
+and I really love the matter of fact
+that you can also override the custom
+configurations of the playwright from
+the command line interface that you can
+pass it like a flag and you can even
+override that particular configuration
+you can use the same configuration for
+different environment while you go with
+the CI CD operations I mean you can do
+every single thing from this
+configuration file which completely is
+not available in selenium I mean you got
+to be writing custom code to do that
+which is not something that you gotta be
+doing in playwright if you are just
+getting started with the automation
+itself with all the best practices and
+Industry leading practices that you can
+use within playwright and also play
+right supports wide range of testing and
+you can see that the one that we have
+been discussing all these time is the
+end-to-end testing like the UI
+end-to-end testing which playeright does
+support but it also support
+accessibility testing component testing
+even though it is an experimental it
+does supports pretty good right now and
+also supports API testing which is also
+awesome because you can do all sort of
+testing combination along with your
+playwright itself so these are the
+different types of testing which are
+being supported by playwright out of the
+box which selenium does not support
+because selenium does not support what
+is called as component testing which is
+completely not possible with selenium
+and there is no way that you can do API
+testing with selenium I mean you can do
+it but it doesn't look quite great you
+kind of using third party library to
+make it happen but everything is
+supported out of the box in playwright
+and not only that playwright offers Rich
+native features which is nothing but the
+UI mode which is going to help you
+actually run the test in the UI mod from
+the command line you can just see that
+there is going to be an UI mode which is
+going to spawn up and then you can also
+generate the code using what is called
+as code gen which is going to generate
+the whole code for you which you can
+then copy the whole code and then paste
+it I know selenium also has got what is
+called a certain name IDE but that is
+the only feature which synonym has got
+but over here in playwright you can
+generate the code not only just from the
+command line using the code Zone but
+also you can use the visual Studio's own
+plugin which is like an extension which
+is available in payroid which you can
+use to generate the code and also you
+can perform a lot of native debugging of
+the code features which is available in
+the playwright out of the box which
+selenium does not offer and of course
+you know that selenium does not have got
+what is called as the vs code Plugin or
+Trace logging greater debugging
+capability within the vs code but that
+is all available out of the box in
+playwright and most importantly
+playwright does have what is called as
+an area locator support which is
+completely not available with selenium
+because area locator is something which
+is quite new which actually uses the
+accessibility feature of the UI which is
+going to be helpful for you to identify
+the UI controls which selenium
+completely does not support but
+playwright does support it and it makes
+you look the classical identification
+quiet complex well compared to area
+because area allocators are very very
+easy to perform in UI identification and
+it's much faster as well which
+completely not available in selenium and
+the final and the last feature of the
+playwright is the playwrights release
+Candace itself you can see that
+playwright does do a lot of release and
+incremental update of its feature every
+single month at least couple of times a
+month sometime and even three times a
+month I have seen before which selenium
+does not because selenium is quite
+slower and is completely Community
+Driven whereas playwright is backed by
+Microsoft and there are so many releases
+happening each and every time it also
+tries to compete with other modern
+automation testing tool like Cyprus as
+much as possible and giving every single
+feature for free and that's the reason
+why playwright is much much faster in
+terms of feature releasing whereas
+selenium is quietest lawyer so these are
+the different features that is available
+in playwright compared to selenium and
+I'm sure that you probably will be
+thinking that there are even more
+feature I probably wouldn't have
+discussed but these are the top 10
+features which I think are something
+more important to be discussed in
+playwright versus selenium and why
+playwright is going to over text your
+name quite sooner please let me know in
+the comments below what do you think
+about this feature we can probably talk
+about that in our next video but yes
+these are the playwright versus selenium
+feature and why playwright is quite
+awesome compared to senium once again
+all these discussion that we have did
+over here are all covered in my exit
+automation course so please go ahead and
+watch there it's available in udemy as
+well as in YouTube which is going to
+give you even more insight of whatever
+that we have discussed so far once again
+thank you so much for watching this
+video and you guys have a great day

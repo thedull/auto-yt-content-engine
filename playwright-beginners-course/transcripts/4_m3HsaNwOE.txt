@@ -1,0 +1,359 @@
+---
+URL: https://www.youtube.com/watch?v=4_m3HsaNwOE
+Title: Playwright Beginner Tutorial 1 | What is Playwright
+Channel: Automation Step by Step
+ChannelURL: https://www.youtube.com/@RaghavPal
+Uploaded: 2022-08-29
+Duration: 13:04
+Language: en-US
+VideoID: 4_m3HsaNwOE
+Source: youtube-captions (en-orig)
+---
+
+hello and welcome i am raghav and
+welcome to this session and this series
+of playwright in this session and in
+this series we are going to learn
+playwright step by step from scratch so
+do not worry if you are a complete
+beginner do not worry if you have no
+background in automation or testing or
+programming or coding i'm going to start
+from scratch and we we are going to go
+up step by step so in this session we
+will start with understanding what is
+playwright and we will look at the
+features of playwright and i will show
+you all the features we will discuss uh
+what is playwright what are the
+applications supported what are the
+browsers supported what are the
+operating systems supported and
+everything about playwright so this is
+going to be a very much theoretical
+introduction session and from the next
+session onwards we will do hands-on we
+will see the prerequisites and then we
+will install and use playwright now if
+you have any questions during this
+session you can always let me know in
+the comment section below or the q a
+section below this video and if you have
+any general question which is not
+related to playwright or this video
+still you can ask me i read all my
+messages and i reply to everyone so you
+can ask me your general questions as
+well if it is a general question then
+you can add the hashtag ask raghav if
+you want you can also go on my website
+automationstepbystep.com and you will
+find all these tutorials here as well
+and you can see the ask raghav playlist
+as well here so you can ask your general
+questions here and
+if you find the pace of this video slow
+you can go to the player settings the
+video player settings and you can
+increase the speed from there so with
+that let's get started and let us first
+see
+what is playwright now playwright is a
+free and open source framework it is
+created by microsoft and it can be used
+for doing test automation on
+web browser applications and when i say
+web browser it can be desktop browsers
+or it can also be mobile browsers so if
+i talk about the applications supported
+by playwright all the web browser apps
+all the mobile web apps as well as we
+can also do api testing with a
+playwright
+if i talk about the languages supported
+now playwright as of now is implemented
+in four languages or four uh libraries
+the first one is the node.js library and
+if you use the node.js library or
+node.js implementation of playwright
+then the options for programming
+language there is javascript or
+typescript so we can use
+javascript.typescript
+then there is a java implementation or
+java api if we use the java library of
+playwright then we can create our test
+cases we can create our framework in
+java then there is a python
+implementation we can use python there
+and then there is a dotnet
+implementation where we can use dotnet
+languages like c sharp so we have all
+these languages support you can create
+your framework and write your test cases
+in any of these languages if i talk
+about the browsers supported by
+playwright then all the modern browsers
+are supported by payride and uh we talk
+about the browser engines here so we
+have support for all the chromium based
+browsers all the webkit browsers and all
+the firefox browsers when i say chromium
+it is a web browser engine and under
+chromium we have google chrome we have
+microsoft edge we have opera we have
+brave browsers and many others under
+webkit we have all the mac os and ios
+browsers like safari and all the ios
+browsers then if i talk about firefox
+then all the versions all the flavors of
+firefox whether it is desktop firefox
+browsers or mobile firefox browsers
+everything is supported by playwright
+and you can also
+use these browsers in a headless mode or
+a headphone mode headless means no gui
+so when you run your tests in a headless
+mode you will not see anything coming up
+on the screen you will not see the
+physical browsers everything will be
+running at the back end and it will save
+time it will save memory but if you want
+to run in a physical mode in a headed
+mode even that is possible where you can
+see the physical browsers on your screen
+so if you just search for if you
+see some chromium browsers or you can
+just search for
+chromium
+browser list and you can find all these
+browsers like we have opera microsoft
+edge uh brave browsers google chrome so
+you can see all the list here so here is
+a list you can check uh this is the link
+where you can see all the list of
+browsers under chromium similarly under
+webkit you can see all the
+webkit browsers like safari and then
+firefox
+browsers so all these are supported then
+if i talk about the operating system
+supported by playwright then you can
+create your playwright framework on a
+windows operating system on a mac
+operating system or a linux operating
+system and it also supports ci runs so
+if you want to use any ci cd tool docker
+all that is supported now this is the
+official website of playwright so if i
+go and search for
+playwright
+you can see
+here this is the official website
+playwright.dev and here you can see the
+details about playwright the
+documentation all the features cross
+browser class cross platform cross
+language
+mobile web and all these features auto
+weight
+assertions
+all this you can see here and here you
+can see the implementations so if you go
+to this drop down you can see all these
+implementations we have node.js python
+java and dotnet so when you select any
+of these implementations or libraries
+and then if you click on this
+github link
+it will take you to the github page for
+that particular
+api of playwright or that particular
+implementation of payride so here i had
+selected node.js from here and then i
+clicked on this github link so it has
+taken me to the github page for the
+playwright node.js implementation and
+you can see all the details here as well
+similarly if i go here and
+select java
+and then i click on this
+github link it will take me to the
+github page for the playwright java
+implementation and this is the
+link for playwright github and this is
+also very important you will see all the
+comments everything here so that is why
+it is open source because
+we can contribute to this playwright
+project and these two links are very
+important i have shown you these things
+so so that in future if there is any
+changes if there are any changes you can
+always refer from here so this is what
+playwright is now if you want you can
+take a screenshot of this screen and
+keep it handy with you you can keep it
+on your mobile or keep it on your
+desktop screen and look at it look at it
+multiple times so that it becomes very
+clear for you that what is playwright
+and with that let us now go to the
+features of playwright so we have
+already seen it is free and open source
+free means you can use it freely and
+open source means we can contribute to
+the playwright project then
+it is multi-browser it has multi-browser
+support multi-language support
+multi-operating system support this we
+have already seen the setup and
+installation is very easy in the coming
+session we will see how easy it is to
+set up and install and configure
+playwright
+then we can do functional testing with
+playwright we can do api testing and we
+can also do accessibility testing so
+there is a third party plugin that we
+can add into our playwright framework
+and then we can do accessibility testing
+as well
+playwright has built-in reporters so you
+will not have to add separate reporters
+in your framework but if you want you
+can also use custom reporters and if you
+want to use any reporters like leo
+reporting all that is supported so you
+can use custom reporters as well in
+playwright then we also have a ci cd
+support and docker support so if you
+want to use any ci cd tools like jenkins
+or if you want to use any container
+platforms like docker that is also
+possible with playwright
+then we have recording options so if you
+want to record your test and you want to
+get your test scripts generated that is
+possible with playwright uh if you want
+to debug your test and if you want to do
+step by step debugging that is possible
+i will show you in the later sessions
+how do we do recording and debugging and
+you can also capture the object locators
+from the screen so you do not have to
+manually create the locators for your
+web objects playwright has options to
+explore and create locators for you and
+then
+we can do parallel testing and with
+parallel testing we can make our testing
+very fast all the playwright in itself
+is very fast but with parallel testing
+we can run playwright on multiple
+browsers at the same time
+then we have auto weight and auto
+timeouts so there are some auto weight
+inbuilt in playwright when we are
+loading a page or when we are finding
+some object or we are doing any action
+on the object there is a
+timeout available and by default it is
+five seconds and we can change it as
+well so auto wait is there then we have
+built-in assertions for example if you
+want to click on a button let us say we
+are on the login screen and we want to
+click on the login button so we will
+just uh add the step to click on the
+login button but at the back end
+playwright will add will uh you know run
+some assessions built in assessions like
+is the page already loaded if if the
+object is already loaded if the object
+is present if the object is clickable
+all this will happen at the back end so
+there are built-in assertions and with
+auto wait timeouts and built-in
+assertions
+our testing and our test cases are a
+very less flaky flaky test means when
+you run a test sometimes it passes and
+sometimes it fails so so these kind of
+tests are flaky tests so with playeride
+they will be very less or no flaky test
+then we have options for retry logic if
+you want to retry your field tests uh we
+have options to see the logs generate
+the logs we have options for screenshot
+and videos of our test execution so all
+this is there then a very important
+feature in playwright is we have support
+for multi-tab and multi
+window execution so a lot of times in
+our applications in our scenarios we
+have a scenario like if i click on a
+link if i click on a button
+it opens a page in a new window or a new
+tab and in a lot of automation tools
+this is not supported but in playwright
+it is supported even if you want to do
+multi-window multi-tab testing you can
+do that with playwright
+then
+playwright can handle iframes and shadow
+dom objects this is also very very
+important and very useful in automation
+then
+if you want to emulate devices if you
+want to run your test by emulating some
+devices like a mobile device you can do
+that if you want to set some viewport or
+the screen size or the resolution and
+then do the testing that is possible if
+you want to change the geo locations
+even that is possible so for example uh
+if i just go to my uh let us say
+my chrome browser and i am pressing f12
+on my keyboard so that i go to the
+chrome dev tools
+and here
+you can see here
+we have option to
+select devices so if i click here
+on this devices
+i will have option
+to select devices like galaxy iphone
+pixel samsung and i can set the
+resolution from here
+so we can set the screen size and
+resolution and with playwright we can
+also do this we can also set the geo
+locations so all this we can do with
+playwright
+then
+uh we can do parameterization we can add
+variables we can do data driven testing
+or we can use some external files like a
+csv file to get our data and do testing
+so that is possible
+and playwright is very fast when we run
+our test cases you will see how fast it
+is so play that is very very fast and of
+course we have parallel testing as well
+so it will make it even more faster so
+these are all the features of playwright
+now if you want you can take a
+screenshot of this screen and keep it
+handy with you and look at it several
+times and you will never forget all the
+features of playwright and
+with that we have completed this session
+from the next session we will do
+hands-on we will
+install playwright we will see the
+prerequisites and then we will
+run create and run our test cases i hope
+this was very useful for you thank you
+for watching and as i always say
+never stop learning

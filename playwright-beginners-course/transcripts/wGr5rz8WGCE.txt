@@ -1,0 +1,222 @@
+---
+URL: https://www.youtube.com/watch?v=wGr5rz8WGCE
+Title: What is Playwright? (🎭 Playwright introduction tutorial, features & demo)
+Channel: Testopic
+ChannelURL: https://www.youtube.com/@Testopic
+Uploaded: 2021-06-02
+Duration: 12:18
+Language: en
+VideoID: wGr5rz8WGCE
+Source: youtube-captions (en)
+---
+
+Hello Clever People! I hope you’re having an&nbsp;
+amazing day! I’m Victor and in the next 15&nbsp;&nbsp;
+minutes, I’ll help you get started with a cool&nbsp;
+new automation tool called Playwright. By the&nbsp;&nbsp;
+end of this video you’ll know: what Playwright&nbsp;
+is, how to install IT and its dependencies,&nbsp;&nbsp;
+how to generate automation scripts without&nbsp;
+writing a single line of code, how to interact&nbsp;&nbsp;
+with elements on the screen, and how to take&nbsp;
+screenshots or record the whole thing as a video.
+&nbsp;
+We’ll be seeing some code, but I’ll&nbsp;
+take you through it step by step.&nbsp;&nbsp;
+And it’s going to be mostly auto-generated,&nbsp;
+so don’t worry if you don’t speak code.
+&nbsp;
+So, let’s get it on!
+First, allow me to attempt&nbsp;&nbsp;
+the shortest Playwright introduction ever
+Playwright is essentially a Node.js library&nbsp;&nbsp;
+made for browser automation.
+It’s free, open-source and&nbsp;&nbsp;
+it’s backed up by Microsoft
+Some of the team members used to&nbsp;&nbsp;
+work for Google at a different automation&nbsp;
+tool called Puppeteer. In the meantime,&nbsp;&nbsp;
+they moved to Microsoft and became the Playwright&nbsp;
+team. So they have plenty of experience.
+&nbsp;
+They are incredibly responsive with resolving&nbsp;
+bugs and answering questions. They have a usual&nbsp;&nbsp;
+triage time of less than 48 hours and have&nbsp;
+already addressed more than 1600 issues.
+&nbsp;
+A small disclaimer: this video is not sponsored&nbsp;
+and I don’t have any affiliation with the team,&nbsp;&nbsp;
+I just really like the tool they are building.
+It supports 3 browser engines that together cover&nbsp;&nbsp;
+all the popular browsers like Google&nbsp;
+Chrome, Microsoft Edge, Apple Safari,&nbsp;&nbsp;
+Opera, Mozilla Firefox etc.
+It can be used with the most popular&nbsp;&nbsp;
+languages out there like Typescript&nbsp;
+&amp; Javascript, C#, Java, or Python
+&nbsp;
+And it has some cool Perks as well. It can:
+automatically download the browsers it needs
+&nbsp;
+record videos of your test
+intercept and modify network requests
+&nbsp;
+emulate devices, location, locale, timezone, etc.
+And it has a cool Code Generator and Debugger&nbsp;&nbsp;
+which I’ll show you in a minute
+In a nutshell, Playwright is awesome.
+&nbsp;
+Let’s get on with installing it. It’s a fairly&nbsp;
+easy process. We only need 3 things: Node.js,&nbsp;&nbsp;
+Playwright, and code editor. As an operating&nbsp;
+system, I’ll be using Windows. You’ll be fine with&nbsp;&nbsp;
+a Linux or a Mac OS as Playwright is compatible&nbsp;
+with those as well. So, 1st, let’s Install Node
+&nbsp;
+We'll do this by going to Nodejs.org&nbsp;
+and clicking the LTS version.&nbsp;&nbsp;
+Ok, we'll just do a next next next&nbsp;
+install with most of the default setup.&nbsp;&nbsp;
+It's a quick installation.&nbsp;&nbsp;
+And then, by going to code.visualstudio.com we&nbsp;
+can start the installation for Visual Studio Code.&nbsp;&nbsp;
+It's going to be another next,&nbsp;
+next, next installation.
+&nbsp;
+Ok, so once Visual Studio Code is installed,&nbsp;&nbsp;
+we'll need a new folder. Visual Studio basically&nbsp;
+works with folders as projects so, just&nbsp;&nbsp;
+create a new folder for this project.&nbsp;
+It's going to be playwright-test.&nbsp;&nbsp;
+Once we have this, we can open it up from VS&nbsp;
+Code. File &gt; Open Folder &gt; Click Select Folder.&nbsp;&nbsp;
+Now, all there is to do is install Playwright&nbsp;
+which we can easily do by starting a Console&nbsp;&nbsp;
+Terminal &gt; New Terminal. Write "npm&nbsp;
+i -D playwright". -D stands for Dev.&nbsp;&nbsp;
+It's going to take a minute or so.
+That was it with the installation process.&nbsp;&nbsp;
+Let me know in the comments below if you ever&nbsp;
+used a code editor or an IDE before, and if so,&nbsp;&nbsp;
+which one do you prefer. Let’s continue&nbsp;
+with creating a simple automation script.
+&nbsp;
+So let's create a new file. Right-click -&nbsp;
+new file. We'll call it hello-platywright.js.&nbsp;&nbsp;
+I promised you we won't be writing any&nbsp;
+code so this is the perfect moment to start&nbsp;&nbsp;
+Playwright's inspector. We can do that by&nbsp;
+writing "npx playwright codegen". We can&nbsp;&nbsp;
+launch this directly or we can give it a&nbsp;
+website, let's say http://wikipedia.org.
+&nbsp;
+It's going to start a browser window&nbsp;
+and the actual inspector. We can see&nbsp;&nbsp;
+the browser window here, and the inspector&nbsp;
+here. This is already recording, so each time&nbsp;&nbsp;
+we do an action in the browser&nbsp;
+window we will see a new line of code&nbsp;&nbsp;
+in the inspector. So let's make this&nbsp;
+a bit smaller so we can see better.&nbsp;&nbsp;
+So let's say we want to automate wikipedia.org. So&nbsp;
+let's go to English &gt; Final Fantasy 9 &gt; Combat and&nbsp;&nbsp;
+character progression. Let's take a look at the&nbsp;
+generated script here, on the right side. It has&nbsp;&nbsp;
+generated Javascript Code because Javascript&nbsp;
+is selected by default, but we can select&nbsp;&nbsp;
+any of the 4 languages it supports (actually 5):&nbsp;
+Javascript, Java, Python, async Python, and C#.&nbsp;&nbsp;
+The structure is going to be the same for&nbsp;
+any language. So if we take a look at the&nbsp;&nbsp;
+code for just a bit, it first starts a browser,&nbsp;
+it then starts the context, then starts a page,&nbsp;&nbsp;
+and then it navigates to the Wikipedia&nbsp;
+website, it then clicks on the English Language&nbsp;&nbsp;
+and so on and so forth. If we change this to Java,&nbsp;
+even after we recorded everything, then we will&nbsp;&nbsp;
+see the same structure again. It first starts the&nbsp;
+browser, then starts the context, then it starts a&nbsp;&nbsp;
+new page. Any Playwright script that starts&nbsp;
+from scratch it's going to start the same,&nbsp;&nbsp;
+so Browser &gt; Context &gt; Page. We'll go through&nbsp;
+these in just a minute. So let's go to Javascript,&nbsp;&nbsp;
+copy everything and go to our code&nbsp;
+editor. Paste everything here.
+&nbsp;
+Amazing, you can already run this.&nbsp;
+But before that, let’s take a minute&nbsp;&nbsp;
+and understand what happens in detail.
+So, as I mentioned, the first thing that&nbsp;&nbsp;
+it does is start the browser. The browser in&nbsp;
+Playwright is similar to a real-life browser.&nbsp;&nbsp;
+So think about this as starting a new browser&nbsp;
+window. It then goes on to start a new context.&nbsp;&nbsp;
+It's kind of like starting a new window inside&nbsp;
+an existing browser. We already have this browser&nbsp;&nbsp;
+here, and we use it to launch a new completely&nbsp;
+independent window. If you start 5 contexts,&nbsp;&nbsp;
+for example, they are going to be completely&nbsp;
+independent of each other. And then, we have a new&nbsp;&nbsp;
+tab. So, browser ... window ... tab. Just like in&nbsp;
+real life. And then, you are going to find some&nbsp;&nbsp;
+familiar actions here. So, we opened up Wikipedia,&nbsp;
+we clicked the English Language articles,&nbsp;&nbsp;
+then we went to the Final Fantasy IX article, and&nbsp;
+we clicked on the Combat and Character progression&nbsp;&nbsp;
+link. So let's what we have here, by running&nbsp;
+it. We'll run it by using this simple command:&nbsp;&nbsp;
+"node hello-playwright.js".&nbsp;&nbsp;
+We see the browser running, clicking ... and ...&nbsp;
+that's it. I hope you caught it. Let's modify it&nbsp;&nbsp;
+a bit. Let's see what it can do for us. For&nbsp;
+example, we can easily take a screenshot:&nbsp;&nbsp;
+page.screenshot and we just have to give it&nbsp;
+a path to the screenshot. Let's call this one&nbsp;&nbsp;
+wiki_screen.png. And let's run&nbsp;
+it again using the same command.&nbsp;&nbsp;
+And let's see what happened. We'll just go to our&nbsp;
+File Explorer here, and we see the new screenshot&nbsp;&nbsp;
+here. We'll see exactly what we expect, so&nbsp;
+it actually navigated to the anchor that we&nbsp;&nbsp;
+clicked last. Another cool thing that Playwright&nbsp;
+can do is record videos of the whole execution.&nbsp;&nbsp;
+So for this, we just need to change the properties&nbsp;
+of the context. If we go to the context here,&nbsp;&nbsp;
+we create a new object and we say recordVideo.&nbsp;
+And we just have to give it a path&nbsp;&nbsp;
+through this dir property, so let's&nbsp;
+say ... videos. Save and run it again.&nbsp;&nbsp;
+At the end, we should see ... yes,&nbsp;
+so we have a new videos folder here&nbsp;&nbsp;
+and it has a file in it.&nbsp;
+Let me open it in explorer.&nbsp;&nbsp;
+So if we go to Videos, we see this video&nbsp;
+here. Let's run it, and as expected,&nbsp;&nbsp;
+everything that Playwright&nbsp;
+does is actually recorded.&nbsp;&nbsp;
+So before we finish off, I want to show you&nbsp;
+just another thing. Playwright is headless&nbsp;&nbsp;
+by default. This means that the&nbsp;
+browser runs, but you can't see it.&nbsp;&nbsp;
+In our case, because we took the code from the&nbsp;
+Inspector which generates the code automatically,&nbsp;&nbsp;
+they actually added this automatically&nbsp;
+for us. So ... "headless: false".&nbsp;&nbsp;
+This means that the browser won't actually&nbsp;
+run headlessly. But if we run this,&nbsp;&nbsp;
+and ... let's say I delete this videos&nbsp;
+folder so that we know it actually runs.&nbsp;&nbsp;
+And if we run it again,&nbsp;&nbsp;
+you can see it created Videos again... and ... it&nbsp;
+finished. I just wanted to show you how a headless&nbsp;&nbsp;
+run looks like ... You don't see anything :)
+That’s it. Let me know in the comments below&nbsp;&nbsp;
+if you plan on using Playwright in the&nbsp;
+future and for what kind of project?
+&nbsp;
+I maintain a small newsletter about Playwright, so&nbsp;
+make sure to head over to testopic.com/playwright&nbsp;&nbsp;
+if you want to be updated when I post a new&nbsp;
+video, cheatsheets, or other interesting&nbsp;&nbsp;
+stuff about this amazing tool.
+Cheers, and have a good one!

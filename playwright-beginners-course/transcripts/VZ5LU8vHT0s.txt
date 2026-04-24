@@ -1,0 +1,939 @@
+---
+URL: https://www.youtube.com/watch?v=VZ5LU8vHT0s
+Title: Playwright Python 1 | Getting Started
+Channel: Automation Step by Step
+ChannelURL: https://www.youtube.com/@RaghavPal
+Uploaded: 2025-06-05
+Duration: 43:51
+Language: en-US
+VideoID: VZ5LU8vHT0s
+Source: youtube-captions (en-orig)
+---
+
+Hello and welcome. I'm Raghar and in
+this session we are going to start
+working with playright with Python. So
+we are going to learn how to use
+playrite with Python and this is going
+to be very easy and very interesting and
+I will go step by step and we'll start
+from scratch. So in this session we will
+see what all things we can do with
+playright. What is playright and what it
+is used for? Then we will start by
+installing Python. We will first check
+whether Python is already installed on
+your system. Whether you are using
+Windows or Mac, I will show you all the
+steps and then if not we will install
+Python and then we will install playrite
+and then we'll create the first
+playright test and that will be to open
+a web page. Okay. So I'm going to tell
+you every step and you can do hands-on
+along with me. This is going to be very
+easy, very interesting and whenever you
+face any issues, you can let me know in
+the comments or Q&amp;A section. So do not
+worry if you are a complete beginner and
+also do not worry if you do not know
+Python or any other programming
+language. If you have never done
+programming, we will learn everything
+step by
+step. Okay. So let's get started and let
+us first see what's playright and what
+are the browsers we can use with
+playright and what all operating systems
+can we use playright on. So playright is
+a automation tool in very very very
+simple words it's a tool that we can use
+for testing websites in an automated way
+and you can test your websites or use
+cases of on your web applications end to
+end like a user scenario. So how a user
+will use your website you can in the
+same way you can automate the process
+end to end user scenarios with playride.
+Okay. And it can work with all the
+browsers like Chrome, Firefox, Safari,
+Edge, etc. And you can use when you want
+to run your tests, you can run in a
+headed mode that is you will see the
+browser coming up on the screen and
+everything happening on the
+browser. But we also have the headless
+mode. So in a headless mode, the
+browser, the physical browser does not
+come up. Everything happens at the back
+end. So it can save some memory and it
+will not distract you from your work. If
+you want to use a headless mode and
+operating systems it can work on
+Windows, Linux, Mac all these operating
+system it can work on and we also have a
+command line mode. So we can run our
+tests using command line and we can also
+integrate our testing with CI/CD process
+and use tools like genkins Azure uh
+GitHub actions etc. Okay. So here we
+have we already know that we can use
+headed or headless mode of browser
+and with playright we also have mobile
+emulation and that means let's say you
+have created your test for desktop
+browsers and it is working fine. Now if
+you want that if you want to test how
+will it run if it is used on a browser
+you can do mobile emulation and test
+that as well. Okay. And with playright
+you can do a lot of other things like
+you can do scraping. Scraping means
+let's say for example you want to go to
+a website and capture all the links
+available on the website and store it in
+a script or in a file. Things like that
+you can do with playright and all the
+browser actions we can do with
+playright. Okay. So this is what is
+playright and what all browsers and what
+how what all it can do operating systems
+etc.
+Now let us first check our system. So
+before we do hands-on, let's check our
+system is ready. So we need at least 4
+GB of RAM on our system. And you can
+check that if you are on Windows, you
+can go to uh my PC or this computer or
+this PC and you can go to properties
+here and you will see all the details.
+So in my case it is a 4GB RAM and a
+64-bit operating system and in case you
+are on Mac you can go to this Apple icon
+and say about this Mac and you will see
+the details. So here I have 8GB and you
+can also check more details about the
+system from
+here. All right. So you can check your
+system and you should have at least 1
+1.5 GB of available space on the hard
+disk. So you can also check that. So if
+I go to my Windows, you can see I have
+around 7 GB free on C drive and 15 GB on
+D drive. So you should have this uh at
+least 1.5 to 2 GB should be good because
+we will be you know installing uh some
+libraries and then creating our project.
+So this should be good and you should
+have a stable internet as we will be
+downloading and installing things and
+you know running our tests. Now you can
+also find all these requirements on the
+playright official documentation. So if
+you just go to uh let's
+say
+playrite
+python system requirements you can
+search here and you can go to the
+documentation here. So you can see in
+the docs you will see all the platforms
+and programming languages. You can
+select Python here and you can see the
+details and here you can find the system
+requirements. Okay. Now I have added
+this link here so that you can check at
+your time what are the latest system
+requirements for your
+system. Okay. So once we are ready with
+our system, let us first check if Python
+is already available on the system or
+not. So for Windows, you can go to
+command line. I am pressing the command
+key or the Windows key on the keyboard
+and say cmd and hit enter to open the
+command prompt. And here I'll just say
+python
+space-y version. And I can also check
+pip version. and nothing is there on my
+system as of now. The same commands will
+work on Mac as well. If you are on Mac,
+you can open the terminal, press command
+plus space to bring up Spotlight search
+and start typing terminal, hit enter.
+And here again I can say Python space -
+version and you can check if Python is
+there or not. And in case Python is not
+there, next step is we will download
+Python from the Python website that is
+python.org. So I'll I'm on my Windows
+and I will
+say
+download
+Python and it will take me to this
+python.org/d
+og/d downloads and here you can just
+click on this download python it will
+download the required installer for your
+operating system and just in case you
+want to specifically check all the
+releases you can go uh to your operating
+system click on your operating system
+here and you can check all this you can
+check so we can install using the
+installer so these are all the
+installers then we also have the
+embedded packages packages or the zip
+file. Okay, so you can get it from here.
+I'm just clicking on this download
+Python and this will download
+the .exe file. Okay, that is the
+executable which I can run and install
+Python. So this is downloaded
+here. Okay, now I
+will run the installer. So you can also
+create a folder for Python where you
+will install Python and then we can set
+the path environment variables. So if
+you're running with the installer, you
+will get a option to add the path
+environment variables. So let us see. I
+will first create a folder. I want to
+install Python on my D drive tools
+folder and I will create a new folder
+here and I will call
+it uh Python and now I will double click
+on the
+installer. So this will start the
+installation process. Now you can see
+you can just click on install now which
+will which will take install python on
+the custom or on the um location this
+location otherwise you can say customize
+installation and also make sure that you
+you check this add python to path
+otherwise we will have to manually do
+this. So I will also show you that but
+for now let us check that and let me go
+with custom installation so that I can
+select the location. Now I can uncheck
+documentation. Uh I also don't need
+this. So I'll just say next here. And
+now I can browse the location. So I want
+to keep it
+at my D and I have the tools folder here
+and Python. So this is where I want
+to install it and this will install
+Python on our system.
+Okay. And you can if you already have
+Python, you can check what is the latest
+or the minimum version of Python
+required by Playright. And you can check
+all that here. So you can see here it
+says Python 3.8 or higher is required
+for this particular latest version of
+Playright. So I'll go with
+this. So this is done
+and I will say close. And if I now check
+my
+folder, the Python folder where I have
+installed, you can see all these files
+and folders have come here. Okay.
+Now you can again check. So if I go and
+check Python space-en version and I'm
+still not getting Python because this
+command line is maintaining the old
+session. So I will have to exit from
+here and open the new command line. And
+before I do that, let me also show you
+the environment variables.
+So I will go to environment variables.
+You can just press the window key or the
+command key and start typing environment
+and you will get this option edit system
+environment variables or edit
+environment variables for your account.
+Or you can go to this PC or my computer,
+do a right click and go to properties.
+And again here you can start typing env.
+And you should find these options here.
+Okay. Now this will open this window. I
+will click on environment variables. Now
+here you can see two sections. This
+section is for the environment variables
+for the user who is logged into the
+system and this is for the at a system
+level. So if you have option if you have
+permission to edit and add at a system
+level you can do that but even if you do
+it at a user level that's enough. So if
+I go to my path environment variable
+this path you will find both at both
+locations for system as well as for
+user. I will go to user and say edit and
+you can see it has already added these
+two folders that is the python folder
+and the python scripts folder. So these
+are the two locations that you should
+add in your path environment variable.
+Okay. So you can also make sure that
+this these are added. And now I will go
+and open a new session of command line
+to check if Python is now available. So
+I will say
+Python
+space- version. And you can now see
+Python is there. I can also check pip.
+PIP is the installer for Python. It will
+install and manage Python packages. And
+I also have PIP. Okay. So we are now
+done with the Python
+installation.
+Okay. So let's go to the next section
+where we are now going to install
+Playride. So you can now see here you
+can either use a IDE and then run all
+the next steps in an IDE or we can first
+make sure that we have installed Python.
+We have created a folder for our Python
+project and have installed uh uh
+installed playright. Sorry I said Python
+it is playright. So you can create a
+separate folder for your playright
+project and then add uh install playride
+there and then we can decide if you want
+to use a IDE or you want to continue
+within the folder with editors and you
+know command line. So I will tell you
+how to do that. Let us first create a
+folder. Now these uh commands are for
+creating the folder from the command
+line. So if you want from the command
+line you can use this or I can also
+manually create a folder for our
+playright project. So let's say I will
+exit from the command prompt and in my D
+drive I will create
+a new folder. I will say new folder. I
+will call this as
+projects and I will go inside this
+folder and again I will create a new
+folder
+here and I will say this
+is
+playright
+demo one. You can name it anything.
+Okay. Now I'm going to open this folder
+on the command line and the reason I
+want to do that is I will create a
+Python environment within this folder
+and then I will install all the required
+libraries within that Python
+environment. The use of that or the good
+thing with this is it will keep all our
+playright project requirements within
+this folder and will not install it at a
+system level. So it will not corrupt
+anything else or anything else will not
+interfere with this particular uh
+project and folder. So we are going to
+keep all our requirements within this
+folder our project folder and it is it
+will also make it very handy in case I
+have to move this folder to a separate
+system or I have to upload it on the
+cloud I will it will take all its
+requirements along with it all the
+libraries and everything. So I will now
+I
+can take it anywhere and run it anywhere
+after I have added everything within the
+folder. Okay. So let's open command
+prompt or if you are on Mac you can open
+terminal and then let us go to this
+project location. Now in my case it is
+on D drive. So first I will have to
+change the location to D. By default
+command line opens on C drive. So I will
+change the location to D by saying D
+colon and enter and it is on D drive
+now. Now now I will say cd that it's
+change directory space and the location
+of my playright demo folder. So I can
+copy this location and
+then paste it here and hit enter. And
+you can see it has changed the location
+to this folder. Now on Windows a
+shortcut for doing this is you can go to
+the folder where you want to open the
+command prompt and then go to this
+address bar here and say cmd and hit
+enter. It will open command line on the
+same location. Okay. So you can do this
+way as
+well. All right. Now after doing this we
+are we are on this our project folder on
+the command prompt. Now we will create a
+virtual environment for our project by
+saying python minus m venv and the name
+of the environment whatever you want to
+keep. Okay. Now this will make a virtual
+environment for Python within our folder
+and then we will activate the
+environment and then whatever Python uh
+operations we do or whatever Python
+libraries we install will all go within
+this environment and will not be
+installed at a system level. Okay. So I
+will say
+now
+Python minus M venv and then whatever
+name you want to give to your
+environment. So let me just say V env1
+or yeah should be okay. V env is okay
+and hit
+enter. And this will create the virtual
+environment. Okay.
+Now we have created the environment but
+we have still not activated it. So to
+activate it you will have to say if
+you're on Mac or Linux you will have to
+say source space vnv or whatever is the
+environment name you have given
+forward/bin/activate and for windows we
+will say the environment name then back
+slashcripts and back
+slactivate. So I will say here B env I
+if I press tab it is autocomp
+completing. You can see it is
+autocompleting on pressing tab and then
+I will say scr and again press tab it is
+autocomp completing and then act again
+press tab on the keyboard it is autocomp
+completing so that means everything is
+fine and we don't have to manually write
+everything and I hit enter and you can
+see now if you see something like this
+the environment name here and then the
+command prompt that means now we are on
+that particular environment and the
+environment is activated Okay. Now we
+will do the installations. Now here I
+will for just install playright. Now if
+you go to the official documentation of
+playright you will find that it is
+suggested to use the playright uh piest
+playright with piest. So you will see
+there install playright hyphen pyest. So
+that is also okay. Uh in that case you
+can directly use piest with playright
+and I will show you that in a later
+session or in the second session. But
+for now let us first only install
+playright and see how to work with it.
+Okay. So I will say
+here
+pip
+install
+playright and hit
+enter and this will install
+playright.
+Okay, this is done. And you can also
+check if you go to
+your environment folder, you go you can
+go to
+include and you can see I think it is it
+should be under uh let me
+see yeah lip side packages you will find
+playright installed here. Okay. So now
+whatever you will install in this
+environment will go within here which is
+within our project
+folder.
+Okay. And just in case you want to
+upgrade playrite the command will be pip
+install playright space-en u. Okay. Now
+as I told you we can also use playright
+with piest using the command pip install
+piest playright. And if you do that uh
+here we can use piest directly and in
+piest whenever we create a file a test
+file we use test in the name like
+test test_ample py something like this
+so that whenever we run using the piest
+command it will run all our test files
+okay it will check this in the file name
+and then it can run it or we can also
+say piest and a particular file name to
+run in that particular file. Okay, this
+is just for information. We are not
+using piest as of now. I will tell you
+that in the second session. Okay, now
+the next command we have to use is
+playright install. This will install all
+the browsers. So let us say now I will
+say now playright is already installed.
+So I will say
+playright
+install. Okay. So you will see it will
+install and set up all the
+browsers. So you can see as of now it is
+downloading and setting up
+Chromium
+and then now the headless
+version and then the
+Firefox. It will also add webkit for
+Safari. And yes, WebKit is getting
+downloaded and set
+up. So this will set up all the
+browsers. And this is done. So here we
+can we are now ready with all our
+browsers as well. And you can check by
+running the command python minus m
+playright version or playright version.
+So if I say
+playrite -
+version I am getting the version of
+playright or I can say python minus m
+playrite py -y version. This should also
+show me the version of playright
+installed. Okay. So now we are ready
+with playright. Okay. We are ready to
+write our first script. Now from
+here it depends if you want to use an
+IDE or just want to write your scripts
+in a normal text pad or a notepad. Now
+it is recommended that we use some IDE
+so that the IDE will give us a lot of uh
+features like code completion, auto
+suggestion uh you know autocorrection or
+giving us all the errors in case we make
+any mistakes and also we can run from
+there. We can uh you know add a lot of
+plugins. So it will be very handy, very
+useful if we use a IDE. Now it depends
+on you if you are already using some IDE
+and if you have some particular
+preference you can continue with that.
+Uh I will tell you all the steps. So
+whatever we do the steps are going to
+remain the same. The scripts are going
+to remain the same. The commands are
+going to remain the same. So it will not
+uh it will be uh it will be okay if you
+are using any IDE. And in case you don't
+have any particular preference, I can
+suggest that you can start with VS code
+or Visual Studio Code. And for that I
+can also show you if you go on my
+website that is
+automationstepbystep.com. If you go here
+and if you scroll down to
+uh the
+ids and editors here you can check we
+have visual studio code playlist and
+this will take you to my YouTube
+playlist and you can watch uh if you
+want to watch first video it's okay you
+should watch this one for working with
+VS code where I have shown how to work
+with VS code in seven steps. Okay. Uh so
+let us do that as well.
+You can even if you don't watch that
+video you can just follow here with me.
+I will say VS
+code
+download and this is the website
+code.visisualstudio.com
+visualstudio.com
+download and
+here you can see we have all these
+installers and zip file as well. So you
+can select for your operating system.
+Now we have the user installer which
+will install for that particular user.
+We have the system installer that will
+install for the entire system and then
+we also have the zip file. Now here if
+you take the zip file you will just have
+to unzip the file and you can keep at
+any location instead of installing the
+software on the entire system. So you I
+will go with this option also make sure
+that this is x64 here and this is ARM
+64. These are two different links. So
+make sure you get it for your operating
+system. So I have already told you to
+check your operating system. You can go
+to my computer or this PC do a right
+click and go to properties and you
+should find your operating system. So
+mine is
+64bit. Okay. So this is what I'm going
+to take or if you want to use the
+installer that is also fine. Okay. So
+I'm just going to take this zip for
+64bit and this will download it
+here. And then I will unzip
+and use VS code from the folder. So it
+is
+here. It is here. First I will create a
+new folder where I want to unzip it. I
+will go to my D tools and let me just
+unzip it here. I will create a new
+folder and call it VS code. You can name
+it anything.
+And then I will go here and do a right
+click and
+say extract
+all and select the folder where I want
+to
+extract and I will say extract.
+Okay. Okay. So once this is unzipped,
+you should see this folder and we have
+got all these files here and here is the
+application file which is the.exe file.
+In case you don't see the extension,
+that's fine. You can still say view and
+show file name extensions. So you can
+see this
+isexe file or the application file and I
+can doubleclick here and open VS code.
+In case you are on Mac the steps are
+going to remain the same. You can get
+the zip file and unzip and then use the
+application or you can just uh get the
+installer for Mac and run it. Okay. Now
+this is
+uh opened. This is VS code. Here you
+will see sections for explorer, search,
+source control, run and debug and
+extensions. We will go to the explorer
+here. And here we have the option to
+open the folder. You can also get this
+option from file and open folder. Okay.
+And otherwise you can also drag and drop
+your project folder here. So let us try
+to do that. I'm going to go to my uh
+project folder which is let me see. Yes,
+here this is my project folder here. I
+will just drag and drop it here on VS
+code explorer and I will say I trust
+this project and you can see our project
+has come
+here.
+Okay. So this is our environment folder
+and this is our project folder. Now here
+if you have to create any file you can
+select and click on this button for new
+file. This is for new folder and this is
+for refreshing and then collapsing the
+files and folders. Okay. So we have got
+our IDE ready and as I said you can use
+VS code or any other IDE and now we will
+write the first playrite test to open a
+web page. So we need to first try first
+create a file which should be a python
+file having extension py. So these are
+the commands if you want to to create
+the file from command line. This you can
+run on Mac or Linux and this you can run
+on windows or you can also directly
+create the file. So let me just go
+here and I will say click on
+this and I will
+name first
+test
+py. Okay. And I can write my code here.
+Okay. Now see the advantage of using u
+ides are as I have created a python file
+it has uh checked that this is a python
+file. So it is showing me all the
+options to select a language. I can
+select python so that it will give me
+all the features like code completion,
+indentation, auto suggestion from that
+particular language. Also you will see I
+am getting
+this prompt here. Do you want to install
+the recommended Python extension from
+Microsoft for the Python language? So if
+you want you can do that. This will give
+you some extra features like you know uh
+code completion, auto suggestions,
+debugging etc. You can also go to this
+extensions and when you search for
+Python and hit
+enter you will again see all the Python
+extensions or plugins. So again this is
+the same from
+Microsoft okay you can install this one
+I think this is the same which is
+recommended here and this will help you
+in your scripting or even if you don't
+use that that's
+fine
+okay so this this part we have already
+done that is you can use some editor uh
+ids like VS
+code okay this part we have done we have
+downloaded the zip file of VS code and
+extracted to a new folder and we can
+also install Python extensions. Okay.
+And you will find the Python option in
+the status bar as well. So you can see
+here you will
+see Python in the status bar. Okay. And
+you can use this
+to you can see autoimp
+import completion. I will switch it on.
+Check type checking. If you want to
+switch it on, you can switch it on or
+off. I will click on this Python and you
+can see
+here all these options for Python come
+here. Okay.
+Now let
+us write our test to open a web page.
+Now this is the playright Python code to
+open a web page. Now before I write this
+I will also tell you line by line what
+does it mean. So here what we can do is
+we can copy this. I will keep this code
+as well in the U description or the
+notes. So you can also copy it from here
+or you can directly get this code and I
+will tell you the options. So let's say
+we have a inbuilt AI assistant in VS
+code that is copilot. you can use that
+or if you don't want to use that you can
+just directly go to any AI tool let's
+say chat GPT or Gemini or Copilot and I
+will
+say
+write play
+write Python
+code
+to open
+google.com and print
+the title and I will hit enter and you
+can see it will give me the entire
+code. Okay. And here this is exactly
+what I have shown you. Okay. Here it has
+created a function and then it is
+running it here. You can do this way or
+you can just copy this part
+and paste it
+here. Okay. And
+also we can you can see I'm getting this
+error here because I have not yet
+imported the playright library. So I
+will also add this from playright. I
+want to import this.
+Okay. And I
+believe see the error is gone. Now I
+think we can increase the font. You can
+go to settings. So here we have
+settings. Go to
+settings and you can just start
+typing
+font. You should see font size here. So
+let me increase the font.
+Also you can
+see
+the appearance or maybe the theme. I
+will check. Do we have theme
+here? Okay, let me check
+here. Okay, so we should I will again
+click on this gear icon and yes, we have
+themes here. I will go to color theme
+and let me just choose the default light
+theme. Okay. I hope this is much clear
+now. Okay. So
+now we have got our code ready. So you
+can see we can make use of AI tools
+today and we we should make use of them
+so that our manual work can be minimized
+and we can make efficient use of our
+time. Okay. So
+here now you can
+also select your code do a right click
+and you can see if we get options for
+indentation. So if I go to command
+pallet. So command pallet can be very uh
+handy. You can open command pallet by
+doing a right click and say
+uh here you will see option for command
+pallet or you can press control + shift
++ p on your keyboard or you can also get
+it from view and you will see command
+pallet option here. Okay. So I will say
+command pallet. Sorry, I'll go back
+here and I will say format
+document. Okay. So it will format the
+document. This is for you can install
+any Python
+indentation and then you will be able to
+format it or you can directly also do
+it. I will
+say you can also press shift alt +
+f. So you can also just go to the uh
+extensions here and
+say Python
+formatter
+and you can get any of
+these and let me see yes I get format
+document now and you can see it has
+corrected the formatting. So this in
+Python uh this is what we do. We don't
+use brackets for you know for modules or
+sections or functions. For example, here
+it is starting with and then everything
+that is present with a space with the
+equal spaces is all part of this block.
+Okay. So this is now a single block. Now
+you can see
+here you can save your file and project.
+This is exactly what I have written
+here. And this is what we have got from
+this AI tool. And in if you're using VS
+code, we also have co-pilot. So again,
+if you go to command pallet and say
+co-pilot. Okay. So here you can see we
+have copilot and you can ask anything to
+copilot. Okay. So if I say the same
+thing or if I add the context of my file
+which is first test I will say explain
+this
+code okay and you can either sign in so
+you can actually create an account on
+copilot and then sign you can also sign
+in using your GitHub account so this is
+optional I'm just showing you just in
+case you want to make use of these
+features. So, I'll just sign in
+here and I will
+authenticate. Okay. So now you can see I
+said explain this code and I use it I
+used my
+file and then I can now try
+this. I can also just say write playrite
+python code to open google.com and print
+title and you can see it will give us
+the a similar
+code and yes you can see now it has
+explained the code. So you can also now
+go to your code and do a right click and
+you will see co-pilot and you can ask to
+explain this code fix the code review
+and comment generate docs generate tests
+all that you can do with AI okay so this
+these are although optional but today
+when we have all these tools when we
+have all these options we can make use
+of all these things okay so now this is
+the code we have so the first thing we
+are doing here is we are saying from
+playride dossync api I import sync
+playride. So this will import playride.
+Okay. And this will make sure that we
+are not we can use this library in our
+code. Okay. Then the second line with
+sync playright sp. Now this code is the
+this is block is starting playright here
+and here it in the with block we will
+write all our code and this p gives
+access to the browsers. So we can now
+use any browser. Okay. Also when this
+code is uh when this block is finished,
+it will autoc close the browser as well.
+Okay. It will do the cleanup as well.
+Okay. So this is what it means. And as I
+have already told you that you can see
+after writing with all this
+is written after this space that means
+all this is part of the with block.
+Okay. Then we are saying chromium.launch
+and headless false. So this will start
+the Chrome browser in a headit mode that
+is it will be shown on the screen. Okay.
+So this is how you can also try with
+headless true. So that will not show the
+browser. And then here we are opening a
+new tab on the browser. And then in the
+next line we are going
+to that particular website. In this case
+it is
+google.com. Okay. And then we are
+getting the title by this command
+page.title and then printing it on the
+console. So as we work with playrite you
+will understand all this and then
+finally we are closing the
+browser. Okay. So this is the code. So
+here we are just saying import playrite
+then start playright launch the browser
+open the tab visit this website
+google.com get the title print it and
+then close the browser okay so let's now
+run our test by running this command
+python and the file name okay and for
+this uh you can either again go to
+command line and go to this particular
+folder and then run this or Now because
+we are on an IDE VS code we have option
+of an integrated terminal. So if you go
+to view you will see we have terminal
+here. You can also press the control
+plus back tick key. This is the key at
+the top right of your keyboard also
+called the uh yeah I think this is the
+back tick key. So the back tick key and
+the twiddle key are the same keys uh are
+present on the same key. So you can go
+from here or just click here and it will
+open terminal window. Okay. So you can
+see terminal is here. Uh you can also
+increase
+the font size of the terminal. Again go
+to
+settings
+and you can go
+to terminal
+font.
+Okay. So you should find the font size
+here. Yes. So you can see it will
+uh increase the font size and you can
+also click on this button to expand this
+window and you will see that
+here it opens the terminal on the same
+folder. Okay, let me
+again open the terminal.
+So this is
+here
+and yes this is here
+now and and you can see it opens on the
+same folder location. So now I will say
+make sure that you have saved your file
+and project. I will say
+here
+Python and the file name. You can press
+tab to autocomplete and hit enter. And
+let's see if it
+works. And it opens the browser, goes to
+google.com and then prints the title and
+then closes the browser. Okay. And you
+can see our code is working fine. Now
+you can also see we have a run button
+here and this is coming from the uh the
+Python plug-in that we have added. So
+you can also try to run from here
+and that may
+also work. Let us just
+check. Yes, you can see it is running
+the same command. So this is also
+working.
+Okay. Okay. So this is how you can run
+your first playright Python test. I hope
+this was useful. I will see you in the
+next session. Thank you for watching and
+never stop learning.

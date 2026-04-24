@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e8e8e8"/>
+    </marker>
+  </defs>
+
+  <!-- Box 1: Test code -->
+  <rect x="20" y="60" width="230" height="140" rx="10" fill="#1e2a3a" stroke="#7fb3d5" stroke-width="2.5"/>
+  <text x="135" y="100" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700">Test code</text>
+  <text x="135" y="135" text-anchor="middle" fill="#c0c8d0" font-size="16">TS · JS · Python</text>
+  <text x="135" y="160" text-anchor="middle" fill="#c0c8d0" font-size="16">Java · .NET</text>
+  <text x="135" y="185" text-anchor="middle" fill="#7fb3d5" font-size="13" font-style="italic">client</text>
+
+  <!-- Arrow 1 -->
+  <line x1="250" y1="130" x2="338" y2="130" stroke="#e8e8e8" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="295" y="110" text-anchor="middle" fill="#f4b942" font-size="14" font-weight="600">JSON over</text>
+  <text x="295" y="155" text-anchor="middle" fill="#f4b942" font-size="14" font-weight="600">WebSocket</text>
+
+  <!-- Box 2: Playwright server -->
+  <rect x="345" y="60" width="230" height="140" rx="10" fill="#1e2a3a" stroke="#76d7c4" stroke-width="2.5"/>
+  <text x="460" y="115" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700">Playwright</text>
+  <text x="460" y="145" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700">Node server</text>
+  <text x="460" y="180" text-anchor="middle" fill="#76d7c4" font-size="13" font-style="italic">broker</text>
+
+  <!-- Arrow 2 -->
+  <line x1="575" y1="130" x2="663" y2="130" stroke="#e8e8e8" stroke-width="2.5" marker-end="url(#arrow)"/>
+  <text x="620" y="110" text-anchor="middle" fill="#f4b942" font-size="14" font-weight="600">CDP /</text>
+  <text x="620" y="155" text-anchor="middle" fill="#f4b942" font-size="14" font-weight="600">protocol</text>
+
+  <!-- Box 3: Browser -->
+  <rect x="670" y="60" width="210" height="140" rx="10" fill="#1e2a3a" stroke="#e59866" stroke-width="2.5"/>
+  <text x="775" y="100" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700">Browser</text>
+  <text x="775" y="135" text-anchor="middle" fill="#c0c8d0" font-size="16">Chromium</text>
+  <text x="775" y="158" text-anchor="middle" fill="#c0c8d0" font-size="16">WebKit · Firefox</text>
+  <text x="775" y="185" text-anchor="middle" fill="#e59866" font-size="13" font-style="italic">engine</text>
+
+  <!-- Caption -->
+  <text x="450" y="40" text-anchor="middle" fill="#c0c8d0" font-size="15" font-style="italic">One persistent WebSocket per test — no per-command HTTP overhead</text>
+</svg>

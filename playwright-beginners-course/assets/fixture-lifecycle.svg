@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" font-family="system-ui, -apple-system, sans-serif">
+  <defs>
+    <marker id="down" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e8e8e8"/>
+    </marker>
+  </defs>
+
+  <!-- beforeEach group -->
+  <rect x="40" y="30" width="680" height="190" rx="12" fill="#0f2922" stroke="#52b788" stroke-width="2.5"/>
+  <text x="60" y="60" fill="#95d5b2" font-size="18" font-weight="700">beforeEach</text>
+  <text x="185" y="60" fill="#74c69d" font-size="14" font-style="italic">(managed by Playwright)</text>
+
+  <rect x="80" y="80" width="600" height="38" rx="6" fill="#1b4332"/>
+  <text x="100" y="104" fill="#ffffff" font-size="15" font-family="ui-monospace, monospace">launch browser</text>
+  <text x="440" y="104" fill="#95d5b2" font-size="14" font-style="italic">cached, reused across tests</text>
+
+  <rect x="80" y="125" width="600" height="38" rx="6" fill="#1b4332"/>
+  <text x="100" y="149" fill="#ffffff" font-size="15" font-family="ui-monospace, monospace">new BrowserContext</text>
+  <text x="440" y="149" fill="#95d5b2" font-size="14" font-style="italic">fresh per test · like incognito</text>
+
+  <rect x="80" y="170" width="600" height="38" rx="6" fill="#1b4332"/>
+  <text x="100" y="194" fill="#ffffff" font-size="15" font-family="ui-monospace, monospace">context.newPage()</text>
+  <text x="440" y="194" fill="#95d5b2" font-size="14" font-style="italic">the `page` you receive</text>
+
+  <!-- arrow down -->
+  <line x1="380" y1="230" x2="380" y2="264" stroke="#e8e8e8" stroke-width="2.5" marker-end="url(#down)"/>
+
+  <!-- test body -->
+  <rect x="40" y="275" width="680" height="90" rx="12" fill="#0a1a3a" stroke="#4cc9f0" stroke-width="2.5"/>
+  <text x="380" y="313" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700">your test body runs</text>
+  <text x="380" y="344" text-anchor="middle" fill="#90e0ef" font-size="14" font-style="italic">receives `page`, `context`, `request` (on demand)</text>
+
+  <!-- arrow down -->
+  <line x1="380" y1="375" x2="380" y2="409" stroke="#e8e8e8" stroke-width="2.5" marker-end="url(#down)"/>
+
+  <!-- afterEach group -->
+  <rect x="40" y="420" width="680" height="120" rx="12" fill="#2b0f3d" stroke="#c77dff" stroke-width="2.5"/>
+  <text x="60" y="450" fill="#e0aaff" font-size="18" font-weight="700">afterEach</text>
+  <text x="180" y="450" fill="#c8a2c8" font-size="14" font-style="italic">(managed by Playwright)</text>
+
+  <rect x="80" y="470" width="600" height="38" rx="6" fill="#5a189a"/>
+  <text x="100" y="494" fill="#ffffff" font-size="15" font-family="ui-monospace, monospace">close context</text>
+  <text x="440" y="494" fill="#e0aaff" font-size="14" font-style="italic">discards cookies · storage · cache</text>
+</svg>
