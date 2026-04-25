@@ -17,6 +17,7 @@ Content/
 ├── .claude/
 │   ├── skills/                      # Claude Code skills (project-scoped)
 │   │   ├── youtube-research-pipeline/   # orchestrator (/youtube-research-pipeline)
+│   │   ├── youtube-research-from-urls/   # orchestrator for specific URLs (/youtube-research-from-urls)
 │   │   ├── youtube-transcript/          # captions + whisper fallback
 │   │   ├── transcript-to-markdown/      # structure raw transcripts
 │   │   ├── notebooklm/                  # NotebookLM CLI wrapper
@@ -65,6 +66,8 @@ Both are gitignored. Re-running the script is safe and upgrades in place.
 
 Open the repo in Claude Code. From any conversation:
 
+### Research by subject (discover videos)
+
 ```
 /youtube-research-pipeline <subject>, top <N>, save to <output-path>
 ```
@@ -73,6 +76,18 @@ Example:
 
 ```
 /youtube-research-pipeline Kubernetes operators, top 15, save to ./k8s-operators
+```
+
+### Research from specific URLs
+
+```
+/youtube-research-from-urls --subject "My Research Topic" <url1> <url2> ..., save to <output-path>
+```
+
+Or with a JSON file:
+
+```
+/youtube-research-from-urls --file urls.json, save to ./my-research
 ```
 
 The pipeline will:
@@ -104,7 +119,8 @@ Kept separate from the pipeline because the synthesis is heavy (~1 hour of model
 
 | Skill | Invoked as | What it does |
 |---|---|---|
-| `youtube-research-pipeline` | `/youtube-research-pipeline` | Top-level orchestrator; chains the others |
+| `youtube-research-pipeline` | `/youtube-research-pipeline` | Top-level orchestrator; searches YouTube by subject and chains the other skills |
+| `youtube-research-from-urls` | `/youtube-research-from-urls` | Orchestrator for specific YouTube URLs provided by the user |
 | `youtube-transcript` | *(internal)* | Fetches YouTube captions; whisper-transcribes if none |
 | `transcript-to-markdown` | *(internal)* | Structures raw transcripts into readable Markdown |
 | `notebooklm` | *(internal + CLI)* | Wraps the `notebooklm-py` CLI for notebook management |
