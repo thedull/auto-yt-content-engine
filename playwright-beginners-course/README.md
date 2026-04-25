@@ -2,7 +2,9 @@
 
 A self-contained research bundle and trainer-ready course distilled from the 15 most-watched Playwright tutorials on YouTube (~50 hours of source material).
 
-The pipeline that built this folder lives at `~/.claude/skills/youtube-research-pipeline/` (see [Regenerating from scratch](#regenerating-from-scratch) below).
+The pipeline that built this folder lives at `.claude/skills/youtube-research-pipeline/` (see [Regenerating from scratch](#regenerating-from-scratch) below). Note that there are two pipeline skills available:
+- `youtube-research-pipeline` — discovers videos by subject (used for this course)
+- `youtube-research-from-urls` — researches specific YouTube URLs you provide
 
 ---
 
@@ -158,7 +160,11 @@ Full metadata in `videos.json`.
 
 ## Regenerating from scratch
 
-The research bundle (transcripts, master summary, NotebookLM artifacts) was produced by the `youtube-research-pipeline` skill. To rebuild from scratch (or run the pipeline on a different topic):
+The research bundle (transcripts, master summary, NotebookLM artifacts) was produced by the `youtube-research-pipeline` skill. There are two ways to run the pipeline:
+
+### Method 1: Research by subject (discover videos)
+
+Use this when you want to find the most popular videos on a topic:
 
 ```
 /youtube-research-pipeline <subject>, top <N>, save to <path>
@@ -170,7 +176,21 @@ Example:
 /youtube-research-pipeline Playwright course for beginners, top 15, save to ./playwright-beginners-course
 ```
 
-The pipeline is idempotent — re-running it skips work already on disk.
+### Method 2: Research from specific URLs
+
+Use this when you already have specific videos you want to research:
+
+```
+/youtube-research-from-urls --subject "My Research Topic" <url1> <url2> ..., save to <path>
+```
+
+Or with a JSON file:
+
+```
+/youtube-research-from-urls --file urls.json, save to ./my-research
+```
+
+Both pipelines are idempotent — re-running them skips work already on disk.
 
 ### Regenerating the deck
 
