@@ -1,0 +1,184 @@
+---
+URL: https://www.youtube.com/watch?v=i6N8oQQ0tUE
+Title: Claude Agents SDK BEATS all Agent Framework! (Beginners Guide)
+Channel: Mervin Praison
+ChannelURL: https://www.youtube.com/@MervinPraison
+Uploaded: 2025-10-04
+Duration: 7:04
+Language: en-US
+VideoID: i6N8oQQ0tUE
+Source: youtube-captions (en-orig)
+---
+
+Clude agent SDK create different AI
+agents and solve complex tasks. Claude
+released agents SDK to interact with
+claude code. Cloud code is one of the
+most advanced CLI tool which can build
+features from descriptions, debug and
+fix issues, navigate any codebase,
+automate ts. But now you can integrate
+cloud code within your own application
+using cloud agent SDK. And I'm going to
+take you through step by step how to
+make your AI application cloud powered.
+Create a basic agent, agent with
+internal tools, agent with custom tools,
+and cloud code options. That's exactly
+what we're going to see today. Let's get
+started.
+First step, open terminal from your
+computer. There you're going to install
+cloud code using this command. I will
+put all the code and the commands in the
+description below. So after this, click
+enter. That will install the basic cloud
+code. Next, pip install cloud agent SDK
+and then click enter. That is the main
+cloud agent SDK package which is used to
+interact with cloud code. Next, just
+type export anthropic API key equals and
+you can generate this API key from
+platform.cloud.com.
+There you can see API keys here. Paste
+the API key here and then click enter.
+Next, create a file called app.py and
+let's open it. First we are going to
+create a basic agent. First step import
+async io. Then from clude agent SDK
+import query. Next async defaf main.
+That is a main function. There you're
+asking this question. Hello how are you?
+And then printing the message like this.
+So this is like a loop which is going to
+keep on printing as and when it receives
+a response from the agent. So we can
+take this query function as the main
+agent and finally we are initiating the
+function by calling async io run main
+and that's it. So literally this much
+amount of code and we have successfully
+integrated cloud agent SDK into our
+Python application. Now I'm going to run
+this code in your terminal python app.py
+and then click enter. Now first you can
+see the system message with all these
+tools/comands.
+Then if you see assistant message. So
+here is the response. Hello, I'm doing
+well. Thank you. How can I help you
+today? So that is a response from the
+agent. So here's the final overall
+output. How much input tokens? How much
+output tokens and other information
+total cost is here. So that is a basic
+agent. Now we are going to get one step
+further. Step number two using internal
+tools. So here I'm slightly changing the
+prompt. Create a file called
+greeting.txt txt with hello mation as
+the content. So just a basic example for
+beginners. So here I'm importing an
+extra function code agent option. So I'm
+going to add that option here options cl
+agent options. So I'm allowing two
+different tools read write tools
+permission mode accept edits which means
+it can edit this greeting.txt file and I
+need to add that in this location query
+function. So as I mentioned before this
+is like one agent. So you are adding
+that options here. This is how you use
+the internal available tools such as
+read and write and adding permission.
+That's it. We have successfully added a
+internal tool. Now I'm going to run this
+code. Python and the file py and then
+click enter. So first is a system
+message that's by default gets added.
+I'm using clo sonet 4.5 and it's trying
+to use the tool call a write tool call
+and the file path is this the content is
+this hello m present it's using a bash
+command to write that created
+greetings.txt txt with hello my imprison
+as the message. So now let's verify
+that. So here is greetings.txt with
+hello my present as the message. That is
+really nice. Next let's take one step
+further with creating a custom tool.
+Step number three creating custom tools.
+To add a custom tool you need to set it
+up as MCP server. So in the options I'm
+going to define a tool which I'm going
+to create. It's called MCP tools greet
+and also assigning a server. So here I'm
+importing extra tool and create SDKMCP
+server. So two different additional
+functions I'm importing. So here I'm
+going to add tools. So here is a custom
+tool. I'm giving a name. The name of the
+tool is greet. The description is greet
+a user. When provided with the name
+automatically responds saying hello with
+the name. That's it. A small function.
+So you can integrate this with any of
+your API or your custom tools. So next I
+need to set up the MCP server. So create
+SDK MCP server naming it as my tools
+version number and passing this greet
+function here greet that's it. So
+literally I've added this much amount of
+code and assign that server here to MCP
+server in the options and allowing this
+MCP tools greet. So that is a greet tool
+here. That's it. Now I'm asking the
+agent that is a query saying that greet
+mason. So overall this much is the code
+31 lines. Now I'm going to run this code
+in your terminal Python custom tools. py
+as before it's starting with system
+message assistant message. It's using
+the tool call and finally here is the
+response. Hello Mvin Pson. So that's
+exactly the response from the tool which
+we created. Hello with the mermaid
+present name. Finally clone options. So
+here is the additional options which I
+want to show you. System prompt. You are
+an expert Python developer. Permission
+mode accept edits. CWD that is the path
+where I want to save my file. Then I'm
+saying create a python web server
+passing this options and print message.
+That's it. Just literally this much but
+some additional cloud agent options.
+Even in cloud docs you can see all the
+available options for cloud agent. So
+here you can see all the available
+options. So among that I'm using just
+three to create a python web server. So
+he's going to write a code in Python to
+create a web server. So now I'm going to
+run this code. Python the file name py
+and then click enter. Now the first step
+I'll create a simple Python web server
+for you. Next is writing the code in a
+temporary location server. py. So here
+it says file created successfully
+server. py and you can see the code here
+a custom server and that is really nice.
+Why this beats other agentic framework
+is because cloud code by itself is
+powerful and it's completely autonomous,
+configurable and extendable. Adding the
+power of cloud code as a agentic system
+makes it unique to others. That's just a
+beginner's guide. Furthermore, I'm
+planning to create few more videos in
+regards to cloud agent SDK. So stay
+tuned. Considering you already like
+cloud agents SDK, I also created Open AI
+agents SDK which I'll put the link in
+here and I highly recommend for you to
+watch and I will see you

@@ -1,0 +1,222 @@
+---
+URL: https://www.youtube.com/watch?v=IVts6ztrkFg
+Title: What are Deep Agents?
+Channel: LangChain
+ChannelURL: https://www.youtube.com/@LangChain
+Uploaded: 2025-11-24
+Duration: 7:42
+Language: en-US
+VideoID: IVts6ztrkFg
+Source: youtube-captions (en-orig)
+---
+
+Hey, this is Lance. I want to talk a bit
+about the deep agents package that we
+recently released. Now, the length of
+tasks that an agent can take every seven
+months. And we see numerous examples of
+popular longrunning agents like Claude
+Code, Deep Research, Manis. The average
+Manis task, for example, can be up to 50
+different tool calls. And so, it's
+increasingly clear that agents are
+needed to do what we might consider
+deeper work or more challenging tasks
+that take longer periods of time. Hence,
+this term deep. Now, one of the
+interesting things you can see when you
+look at agents like Manis or like Claude
+Code is that they don't actually use
+that many different tools. They focus on
+a small number of atomic tools that do
+some very basic but powerful actions.
+Notably, access to a file system in a
+computer with things like tools for file
+manipulation as well as a bash tool or a
+shell tool to execute scripts.
+This is extremely useful for offloading
+context over the course of long agent
+trajectories and for
+performing actions through script
+execution as an example. Similarly,
+longrunning agents typically involve
+some kind of planning. Claude code has a
+planning tool. Manis also has the notion
+of planning. And both claude code as
+well as manus use sub aents for context
+isolation. So if there's a specific
+task, we can spawn a sub agent with its
+own independent context window. It can
+perform that task and return results
+back to the parent agent. This is
+extremely useful way to preserve the
+context window of the parent. Now in all
+these cases,
+of course, prompting is still extremely
+relevant. The cloud code system prompt,
+for example, is publicly available and
+it's quite long and extensive. So a
+small number of atomic tools that can do
+broad set of actions notably
+sub aent delegation for context
+isolation planning for longunning tasks
+access to a computer through file system
+through a shell tool for offloading
+context for performing different actions
+via scripts are all extremely general
+and useful and guided by often fairly
+detailed prompting. Now because these
+tools are so general we've rolled them
+into the deep agents package. It's fully
+open source and this package can be used
+to build many different types of agents.
+Now, how does this differ from lang
+chain and langraph? So, langraph
+provides a core agent runtime. This
+gives low-level infrastructure things
+like checkpointing, things like memory,
+support for human the loop that's all
+built in the langraph framework itself.
+Now lang chain provides some generally
+useful abstractions for example for
+accessing chat models for defining tools
+and then deep agents is an opinion and
+agent harness built on top of these two
+things that implements a specific set of
+tools as mentioned for planning for sub
+aent delegation for file system
+manipulation and bash and general code
+execution
+and these are built into the harness
+with some opinionated prompting to
+govern how they should be used and you
+can see those differences laid out in
+the table here. Again, lang chain is
+just a framework with a set of common
+abstractions for things like chat models
+for things like tools. Lang graph is the
+agent runtime supporting lower level
+infrastructure support durable execution
+things like streaming human and loop
+persistence and deep ages of course is
+just a harness built on top of lang
+chain and langraph with a set of
+predefined tools prompts
+that could be easily adapted for many
+different agent use cases. So lang graph
+is extremely low level.
+It has very simple abstractions such as
+nodes and edges. It can be used to build
+different agents. It can be used to
+build many different types of workflows.
+Lang chain has some general abstractions
+that can be used to build many different
+types of agents. And deep agent is just
+one particular agent harness which is
+opinionated which has a few specific
+tools built into it. Now why think about
+this? Now it is clear that agents are
+becoming autonomous quite quickly. As
+mentioned the task length that agents
+can undertake is doubling roughly every
+seven months. So some principles for
+working with deep agents models are
+getting increasingly capable.
+This small set of atomic tools is very
+general.
+The ability to use a shell tool, the
+ability to manipulate files, the ability
+to delegate tasks and plan. So typically
+it's beneficial to actually move a lot
+of the complexity of your application
+into the prompting itself. And so we're
+seeing increasingly
+narrow set of capable tools
+and highly sophisticated instructions or
+prompting to use those basic tools. If
+you look at cloud code, there's less
+than 20 tools but very extensive system
+prompt instructing how to use those very
+general tools in the best way. And the
+second main idea is to really use the
+file system.
+Not only can the file system be used to
+offload context from the LM's context
+window, for example, write a plan, pull
+it back in later. We see that with
+Manis, but also the file system can be
+used to store
+scripts that the agent can use. We've
+seen this more recently with the idea of
+clawed skills. So we can give the agent
+access to a file system with directories
+with different skills that gives it
+access to many different scripts that it
+can just call using its bash tool. So
+with access to a computer effectively a
+file system and a bash tool an agent can
+perform a very large number of actions.
+And of course sub aent delegation can be
+very useful. For example you see claude
+call the task tool for certain things
+that are more tokenheavy that are best
+isolated in their own context window. So
+we've launched the deep agents CLI which
+is just a deep agent running on your
+local machine much like cloud code with
+access to your local file system. We've
+also launched deep agents 0.2. And this
+release gives you pluggable backends. So
+rather than just using a virtual file
+system which is just the Langar state
+object, you actually can use your local
+file system. DHES also has some useful
+middleware. You can think about
+middleware really as hooks. So this is
+basic code that runs at specific points
+within the agent life cycle to do
+different things. One example is context
+compression. So once the messages list
+grows sufficiently long, you can apply
+compression to summarize it. We see this
+with cloud code. Middleware also serves
+as a tool handlers for file system tools
+as well as for the sub agent tool. And
+it supports things like prompt caching,
+which is a very useful way to save
+latency and cost by caching input tokens
+that are not changing ac across
+different agent invocations.
+The CLI lets you run a custom deep agent
+directly from the terminal. It's a lot
+like cloud code and this is really
+giving deep agent access to your own
+file system with support for skills and
+with support for memory. So overall deep
+agents is an opinionated agent harness
+built on top of lang chain and lang
+graph. It uses a few atomic tools that
+we've seen very commonly with agents
+like manis and claude code access sub
+aents use of the file system use of a
+shell tool and use of planning. It bakes
+all these into the harness for you but
+it can be easily customized by adding
+your own instructions or even adding
+your own tools
+with support for MCP. We've also
+launched the deep agent CLI, deep agent
+that can run locally on your machine
+with access to your local file system
+much like cloud code.
+And in addition to the core tools built
+into deep agent package, the CLI also
+ships with support for memory skills, a
+shell tool, web fetch tool, and a few
+other things that are particularly
+useful when running locally on your own
+machine.
+And again, all this is fully open
+source, and we strongly encourage
+contributions and welcome any feedback.
+Thanks.

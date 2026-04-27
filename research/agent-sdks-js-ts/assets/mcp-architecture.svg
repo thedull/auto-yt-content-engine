@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 520" font-family="-apple-system, Helvetica, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e8e8e8"/>
+    </marker>
+  </defs>
+  <rect width="900" height="520" fill="#0b1220"/>
+  <text x="450" y="32" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700">MCP — clients, servers, transports</text>
+
+  <!-- Client -->
+  <rect x="40" y="90" width="220" height="380" rx="10" fill="#1e2a3a" stroke="#4aa3ff" stroke-width="2"/>
+  <text x="150" y="120" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="700">MCP Client</text>
+  <text x="150" y="145" text-anchor="middle" fill="#c0c8d0" font-size="13">Claude Desktop · Cursor</text>
+  <text x="150" y="163" text-anchor="middle" fill="#c0c8d0" font-size="13">VS Code · custom CLI</text>
+  <rect x="60" y="200" width="180" height="40" rx="6" fill="#0f2922" stroke="#5fcf80"/>
+  <text x="150" y="225" text-anchor="middle" fill="#ffffff" font-size="13">list_tools()</text>
+  <rect x="60" y="250" width="180" height="40" rx="6" fill="#0f2922" stroke="#5fcf80"/>
+  <text x="150" y="275" text-anchor="middle" fill="#ffffff" font-size="13">list_resources()</text>
+  <rect x="60" y="300" width="180" height="40" rx="6" fill="#0f2922" stroke="#5fcf80"/>
+  <text x="150" y="325" text-anchor="middle" fill="#ffffff" font-size="13">call_tool(name, args)</text>
+  <rect x="60" y="350" width="180" height="40" rx="6" fill="#0f2922" stroke="#5fcf80"/>
+  <text x="150" y="375" text-anchor="middle" fill="#ffffff" font-size="13">read_resource(uri)</text>
+  <rect x="60" y="400" width="180" height="50" rx="6" fill="#3a1e2a" stroke="#ff6b9d"/>
+  <text x="150" y="423" text-anchor="middle" fill="#ffffff" font-size="13">sampling reply</text>
+  <text x="150" y="440" text-anchor="middle" fill="#c0c8d0" font-size="11">(server asks client's LLM)</text>
+
+  <!-- Transport label -->
+  <text x="450" y="200" text-anchor="middle" fill="#ffd166" font-size="14" font-weight="700">stdio (local)</text>
+  <text x="450" y="220" text-anchor="middle" fill="#ffd166" font-size="14" font-weight="700">HTTP streaming (remote)</text>
+  <text x="450" y="245" text-anchor="middle" fill="#888" font-size="11">SSE — deprecated</text>
+
+  <!-- arrows between -->
+  <path d="M 260 280 L 635 280" stroke="#e8e8e8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+  <path d="M 635 320 L 260 320" stroke="#e8e8e8" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- Server -->
+  <rect x="640" y="90" width="220" height="380" rx="10" fill="#2a1e3a" stroke="#c084fc" stroke-width="2"/>
+  <text x="750" y="120" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="700">MCP Server</text>
+  <text x="750" y="145" text-anchor="middle" fill="#c0c8d0" font-size="13">your code, any language</text>
+  <rect x="660" y="180" width="180" height="50" rx="6" fill="#0f2922" stroke="#5fcf80"/>
+  <text x="750" y="205" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">tools</text>
+  <text x="750" y="222" text-anchor="middle" fill="#c0c8d0" font-size="11">side effects (POST-like)</text>
+  <rect x="660" y="240" width="180" height="50" rx="6" fill="#0f2922" stroke="#5fcf80"/>
+  <text x="750" y="265" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">resources</text>
+  <text x="750" y="282" text-anchor="middle" fill="#c0c8d0" font-size="11">read-only (GET-like)</text>
+  <rect x="660" y="300" width="180" height="50" rx="6" fill="#0f2922" stroke="#5fcf80"/>
+  <text x="750" y="325" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">prompts</text>
+  <text x="750" y="342" text-anchor="middle" fill="#c0c8d0" font-size="11">templated messages</text>
+  <rect x="660" y="360" width="180" height="50" rx="6" fill="#3a1e2a" stroke="#ff6b9d"/>
+  <text x="750" y="385" text-anchor="middle" fill="#ffffff" font-size="13" font-weight="700">sampling</text>
+  <text x="750" y="402" text-anchor="middle" fill="#c0c8d0" font-size="11">server → client LLM</text>
+</svg>

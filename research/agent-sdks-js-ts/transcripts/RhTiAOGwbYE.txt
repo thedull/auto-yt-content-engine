@@ -1,0 +1,1061 @@
+---
+URL: https://www.youtube.com/watch?v=RhTiAOGwbYE
+Title: MCP Tutorial: Build Your First MCP Server and Client from Scratch (Free Labs)
+Channel: KodeKloud
+ChannelURL: https://www.youtube.com/@KodeKloud
+Uploaded: 2025-07-21
+Duration: 40:14
+Language: en-US
+VideoID: RhTiAOGwbYE
+Source: youtube-captions (en-orig)
+---
+
+Model context protocol. What exactly is
+it and why is everyone talking about it?
+This is a crisp, nononsense, no BS
+hands-on introduction to model context
+protocol for the absolute beginners. So,
+no prior knowledge required. We'll cover
+everything from the absolute basics.
+We'll understand why MCPs are needed in
+the first place. What are MCPs? We'll
+look at the MCP architecture. Then,
+we'll learn how to use an existing MCP
+server. will then build an MCP server
+and an MCB client from scratch. And
+you'll also gain access to a hands-on
+lab environment exercises and resources
+that you can use to follow along this
+video with me. Now, we'll begin by
+looking at why do we need MCPS in the
+first place. Let's start with something
+we already know, CHPT. The way it works
+is when you send a message to GPT, which
+is the LLM, it responds back with its
+response in the form of a generated text
+or other forms like image or audio or
+video. But let's say we were building a
+flight GPT app and I say I would like to
+fly to North London. It should book a
+flight for me. Well, LLMs can only
+respond back with a generated text or
+other supported formats. It can't
+perform any action on its own. But what
+does uh taking an action mean here? By
+the way, we discussed this in more
+detail in our previous video about the
+introduction to AI agents and MCPs. So
+do check it out if you just want an
+overview of uh what MCPS are. However,
+I'll take a minute to summarize that
+here. Anyway, now in our application,
+when I say I would like to fly to North
+London, my application should be able to
+interact with these third party flight
+services such as whatever is listed here
+and then retrieve flight details uh from
+these sites and then also compare that
+against my preferences uh such as
+whether I prefer cheap or luxury flights
+or my seat preferences or meal
+preferences and based on all of that
+information, make a decision for me and
+not stop until it's retrieved enough
+information to be able to make a
+decision and then book the flights for
+me and tell me the flight details. So,
+I'd like my AI to take action for me.
+So, we need something magical that can
+do that for us. And what is that? Well,
+those are called AI agents. And AI
+agents are able to interact with third
+party platforms or websites, gather
+information and combine that with a
+memory that it has based on our previous
+conversations and then interact with an
+LLM, which is the real AI here, to make
+a decision for me. And that magical
+thing is known as the AI agent. An AI
+agent can interact with third party
+tools, have its own memory and interact
+with an LLM and go back and forth until
+it has uh completed the task that it is
+assigned to do. Now, in the previous
+video when I shared this, someone asked
+in the comments, yeah, so AI agent is a
+magical thing, but what exactly is it?
+So, let's spend a minute on AI agents
+here, but note that we have an entire
+video coming up on understanding AI
+agents in depth on our channel next
+week. So, do subscribe to be notified
+when the video is out. And by the way,
+if you have any questions uh on this
+one, please drop it in the comments
+below so I can answer them in my next
+video. So all build workflows in the
+past well longunning automation scripts
+for example the good old VMware
+re-realize orchestrator if you're from a
+VMware world or the Microsoft system
+center orchestrator uh if you're from
+the Microsoft world or a modern tools
+like Zapier or just good old-fashioned
+series of Python scripts just duct tape
+together and you had all of these
+complex logics in place to make
+decisions and go into loops and connect
+with third party tools. Now, if you did
+all of that, then you already know how
+an AI agent works. Except in case of an
+AI agent, the agent relies on AI in the
+form of LLMs to make these decisions.
+The agent often interacts with AI to
+know what route to take as part of a
+conditional decision or how many times
+to iterate in a loop or what third party
+tools to interact with or how to process
+the user input or know when the script's
+uh goal is achieved so that it can exit.
+So yeah, an AI agent is just like your
+old automation script except now it can
+think. So how does that apply to our use
+case here? A typical AI agent workflow
+looks like this. The user sends a
+request to the AI agent. The AI agent
+interacts with the LLM to extract the
+right details from the user's input as
+different users might input details
+differently. In this case, the AI agent
+asks, "Here is a user's input. What does
+a user mean?" The LLM responds back
+saying that the destination is London.
+The AI agent then requests the LLM for
+assistance in identifying which third
+party tools to interact with. There may
+be other third parties as well such as
+hotels or rental cars or other
+databases. The LLM helps the AI agent
+identify that the flights are the third
+parties to interact with. The AI agent
+then interacts with the airlines and
+retrieves flight details. The AI agent
+then asks the LLM what to do next and
+the LLM says fetch the preferences from
+the database. So the AI agent fetches
+the preferences from the database. These
+details are then sent to the LLM
+requesting it to make a decision. The
+LLM identifies the right flight to book
+and sends back the information to the AI
+agent. The AI agent then books the
+flight and sends the flight details to
+the user. As you can see, at various
+stages, the LLM interacts with the AI
+agent to process data and make a
+decision.
+So, here is a super simplified version
+of an AI agent that's written in Python
+without using any framework or anything
+complex. It interacts with the user to
+get inputs. It then calls LLM to
+retrieve the specific details from the
+user's input such as origin,
+destination, and date of travel. It then
+fetches flight details from thirdparty
+websites. It then fetches user
+preferences from memory or database and
+then sends these details to the LLM to
+make a decision and finally books the
+flight by making a call to the third
+party site. Now, that's a super
+simplified version of the workflow. It's
+missing many additional LLM calls that
+the AI agent would make. the
+decision-making loops that the AI agent
+would go through if the right match is
+not available the first time, but that's
+for another time. We have frameworks
+like lang chain and langraph that can
+help make this workflow better. We'll
+discuss that in detail in the upcoming
+videos. Note that all code that's shown
+in this video are pseudo code only. So
+do not try to run it as is. Refer to the
+actual code in the labs associated with
+this video. So coming back to this, we
+said that an agent can interact with
+third party platforms. this way. But how
+does an agent really interact with the
+third party platform? It does that
+through what are known as tools. A tool
+allows the agent to interact with
+another platform. Let's take a closer
+look at that. So here the agent has the
+ability to interact with these airlines
+using a tool for each one. But how does
+a tool interact with an airline? Going
+back to our pseudo code, if you look
+inside the fetch flight details
+function, you'll see a tool call for
+each airline and we pass in the query
+parameters to it such as the origin,
+destination, date, etc. And we make a
+tool call for each airline and append
+the results and return that.
+Now, if you take a closer look at that
+call, you'll see that each call is
+different. The first one is API/flights.
+The second one is flights list. The
+third is list flights. Also, their
+responses are different too. Each
+airline has its own standard when it
+comes to their APIs. There are hundreds
+of airline sites and there are millions
+of other third party sites. And if I
+want my application to interact with all
+of them, do I need to write all of these
+code? Now, we are in the AI world and I
+shouldn't have to do this. So, gone are
+those days when I would sit and write
+programs to connect to these different
+flight service providers myself. So, why
+can't AI just do that for me and only if
+there was some magical solution that
+existed? And so comes MCPs or model
+context protocols. Think of MCPS as a
+guide for the AIS to choose the right
+APIs and interact with the third party
+platforms. MCPS provide agents the
+context they need to interact with
+thirdparty platforms. What does that
+mean? Let's dive deeper into MCPs and
+how agents can discover and use MCPs.
+MCPS follow a client server
+architecture.
+Now agents use the MCP client to
+interact with a server. So usually MCP
+clients are embedded within coding
+agents in idees like cursor, windsurf,
+cloud code or cloud desktop. We could
+then get these agents to connect to a
+local database instance like MongoDB or
+browser tools. For example, here's a use
+case where we ask the AI agent about a
+recent problem with the UI of our
+application. The AI agent goes into a
+quest of going through the git history,
+checking backend and front-end code, and
+finally identifying the commit that
+caused the change. This does not use an
+MCP server though. While developing
+front-end web applications using the
+browser, MCP server provides the AI
+agent access to the browser console logs
+and HTML elements that can be used to
+troubleshoot front-end issues. And
+finally, a really cool use case is in
+data engineering. By providing MCP
+server readonly access to our data using
+the Stride, Big Curry, and Data Studio
+MCP servers, we could now ask specific
+questions about missing data and
+transactions. And the AI agent can now
+dig in and identify root cause of such
+issues by combining information from
+these different sources. So who builds
+the MCB servers? If I was the owner of a
+business or an application and I want AI
+agents to interact with my app, I would
+build and maintain my own MCP servers.
+You'll see a lot of vendors announcing
+the launch of MCP servers for their
+services. If you go to the model context
+protocol repository on GitHub, you'll
+see a list of official integrations. MCP
+servers can be built by anyone really as
+long as they know how the APIs work. So
+for companies that have not built
+official MCB servers, there are
+community members who have built their
+own versions. Of course, these need to
+be used at your own risk as there is no
+guarantee that they are tested or up to
+date with latest versions of the
+vendor's APIs. But what does it mean
+when I say anyone can build an MCP
+server? How is that possible? For that
+we need to understand what NCPs are and
+what the model context protocol
+specification is. So up next we'll
+discuss what is MCP, what the MCP
+architecture is and then proceed to
+using an MCP server and building our own
+MCP servers and clients. But before we
+proceed with the next step, let's head
+over to the lab and get familiarized
+with the lab environment.
+We're now going to access the lab
+environment that's provided along with
+this video. Use the link in the
+description below to create a free
+account to access the labs. Start with
+the first lab.
+This is the interface to our lab
+environment. On the left, you have a set
+of instructions. In this case, there are
+seven tasks for you to complete in this
+lab. And on the right, you have a VS
+Code server. You can access the terminal
+by clicking anywhere below and going to
+terminal. So this is access to an actual
+system hosted on our labs. Now uh in
+this lab we're going to get started with
+root code AI assistant. So root code AI
+assistant can be thought of as a cursor
+or windsurf alternative uh which is a VS
+code extension. So if you click on the
+kangaroo button here, you're going to be
+able to see a chat interface. Let's
+continue with the lab uh and uh
+configure this environment. All right.
+So here it says uh open a new terminal
+in VS code on the right. So we've opened
+a new terminal and run this command to
+look into bash profile. So if you look
+into your bash profile, you're going to
+be able to see a set of keys that you
+can use during this lab session.
+Here we're going to need the OpenAI base
+and the OpenAI key. So we're going to
+keep a note of this for now. Let's
+continue to the uh next step. Okay. So
+the goal here is to configure uh root
+code with this API keys. So, we're going
+to go into the API provider and select
+uh OpenAI compatible and then the base
+URL. The base URL can be found here. So,
+we're going to select this and paste it
+right here. And the API key, the API key
+is going to be the OpenAI API key. So,
+we're going to copy this and paste it
+here. The model is going to be what's
+given here. So, it's a DeepS free model.
+So, we're going to put that in and click
+okay. Now we're going to go and click
+let's go. What this does is it sets up
+root code. Now we're just going to copy
+this prompt and paste to make sure that
+it's uh working. And we can see that
+it's now starting to respond to us. This
+means that the API key setup is
+successful and root code is working.
+Let's click on okay to continue.
+And you can now explore asking these
+questions to root code. I'll let you
+explore those by yourself. So head over
+to the labs and explore these by
+yourselves and once you're done come
+back and continue with this video. We'll
+now understand what MCPS are and what
+are its different components in a super
+simplified manner and then we'll see how
+it can be used. Now let's look at what
+an MCP server really is. MCP itself
+stands for model context protocol. Model
+refers to the AI itself, the LLMs, the
+large uh language models. The context
+refers to giving AI or the model context
+of a third party and uh protocol simply
+means a set of standards. So MCP itself
+is just a set of standards that define
+how AI applications can work with each
+other. If you go to
+modelcontextprotocol.io
+and look under specification, you'll see
+what it means. It defines a set of rules
+that needs to be followed by someone
+building an MCP server or a client such
+as the communication between the server
+and client must use a JSON RPC format.
+The connection must be stateful. The MCP
+server must offer any of the following
+features such as resources, prompts, and
+tools to the clients. And the clients
+must offer sampling roots and
+elicitation features to the servers.
+Now, don't worry if you don't know any
+of these details yet. We'll discuss
+these in more details in a bit. For now,
+simply understand that anyone can build
+an MCP server as long as they adhere to
+these standards defined. And if a server
+is built following these standards, any
+client can use it. Now, we'll understand
+what MCPs are and what are its different
+components in a super simplified manner
+and then we'll see how it can be used.
+Let us now look at MCP architecture. If
+I had to truly understand what an MCP
+server is and how to build it, I would
+first assume a state where no MCP
+servers exist. then I would know the why
+behind building the MCP server. So for a
+minute let's assume that MCPS don't
+exist and I'm building a client to
+interact with the server. Now what would
+I need? First I would need to know what
+the server can do like what APIs do the
+server support what capabilities it has.
+For this I would usually refer to the
+API documentation of that server and
+figure out everything that the server
+supports.
+Now, these are known as tools. In the
+MCP world, the server must list all of
+its capabilities as a list of tools
+defined in a specific format. Each tool
+should have a description of what it
+does and an input and output schema.
+Next, uh we may need certain data such
+as refund policies or guides to uh
+cities or FAQs. And these details may be
+needed to be passed through to the AI to
+support its decision-making. For
+example, if the user has a preference to
+book only flight providers that support
+a refund, then the information in these
+guides come in handy. Now, these are
+known as resources. The MCP
+specification has a clearly defined
+structure to define resources. The
+resources should have a URI that points
+to the resource, a name, title, and a
+description uh that defines what this
+resource does. The URI could be https
+that points to a resource on the web or
+a file that's uh located on the file
+system or a location of a git
+repository. Okay, so we now have tools
+and resources defined in our MCB server.
+Now using these tools, the client or the
+AI agent that uses the uh client needs
+to call the LLM. Now you can leave it up
+to the AI agent or the developer
+building the AI agent to create the
+right prompt for the LLM. So whoever is
+building the AI agent uh might decide to
+send a prompt to the AI agent say find
+me a flight to London. However, as a
+developer of the NCB server, you know
+the better prompt is that you are a
+travel assistant and uh when the user
+asks about flights, you must call the
+search flights tool with the origin,
+destination, and date and format all
+dates as the particular format that's
+given here and be helpful and concise.
+So as you can see here there are
+specific instructions given along with a
+specific format of dates and these are
+known as prompts and that's the third
+type of entity that an MCP server can
+expose. So MCP specification defines a
+specific format to define a list of
+prompts. For example, in this case we
+have a list of uh prompts that defines a
+name for each prompt, a title, a
+description and a set of arguments that
+can be passed.
+So those are the highlevel details that
+an MCP server needs to expose to its
+clients. Let us now see how to build an
+MCP server. There are SDKs available uh
+that make this easier. So we'll
+understand what MCPS are and what are
+its different components in a super
+simplified manner and then we'll see how
+it can be used.
+So how does the server and client
+communicate with each other? It uses a
+JSON RPC protocol. But what exactly is
+JSON RPC?
+So the JSON in JSON RPC stands for JSON
+which we already know and the RPC stands
+for remote procedure call and together
+JSON RPC defines how a client can call a
+procedure or a method remotely and pass
+parameters and receive a response. Now
+what that basically means is say there
+is a server that has a method such as
+add in it. A client should be able to
+invoke that method remotely and pass
+parameters to it. So the protocol
+defines clear guidelines on how data is
+sent and received. The client when
+making a request should send a JSON
+document that contains the JSON RPC
+version which must be set to 2.0, a
+method to call on the server side and a
+list of parameters to be passed through
+to the message along with an ID number
+which is a number. The server then
+responds sends a response back that has
+JSON RPC version specified which is 2.0
+0 along with the result and ID and an
+optional error field with uh the error
+details if there is an error. Now note
+that JSON RPC is a simple protocol meant
+to be kept simple. As such it is
+stateless and does not define how data
+is transmitted between client and
+server. So that's up to us to decide. It
+could be HTTP websockets TCP UDP unique
+sockets message Q standard IO etc.
+So, NCP supports HTTP and standard IO as
+the transport mechanisms for clientto-s
+server communication. Now, here's an
+example of an implementation of JSON RPC
+in Python with client and server. So,
+the server uses the JSON RPC SDK for
+Python to define a simple AD method. And
+the client uses the JSON RPC client SDK
+to send a request to the server and
+receive a response. And this example
+uses an HTTP transport. Next, we'll see
+how to use an existing MCP server. Let's
+first look at how to use an existing MCP
+server and then we'll learn how to build
+our own. Kind of like learning how to
+drive a car first before learning how to
+engineer and build one. So, how is MCP
+meant to work? In the past, you wrote
+code for interacting with uh an API
+server directly. But now with MCP
+server, you're no longer concerned about
+APIs. Instead, you make a call to MCP
+server and the MCP server handles
+interacting with the endpoint. Your tool
+can query the MCP server to know its
+capabilities and then make a tool call.
+Now, where is this MCP server hosted?
+Now, it can be hosted locally on your
+machine or remotely hosted by the vendor
+themselves.
+Now, if it's hosted locally on a
+machine, this is where you run a local
+instance of MCP server and connect to it
+via standard IO or HTTP
+or there are remotely hosted MCP servers
+either by your organization to have a
+single MCP server accessible internally
+across the organization or uh say by a
+vendor themselves to allow AI agents to
+interact with them. In that case, you
+connect to it via HTTP.
+Let's first look at how to configure an
+NCB server locally. If you are
+configuring your IDE like cursor or
+windsurf or tools like cloud code to MCP
+server, they come with an NCP
+configuration file such as the MCP.json
+file for cursor. It is a JSON file that
+has a highle object called MCP servers
+and that contains a list of MCP servers
+under it. In this case, we have the
+flight MCP. Provide the command and
+arguments to start the MCP server.
+Environment variables can be passed
+through if necessary. And when this is
+configured, these IDs start an instance
+of the MCP server in the standard IO
+mode. Standard IO is the simplest and
+fastest way for two local processes like
+cursor or cloud and your MCP server to
+talk to each other without needing HTTP
+or sockets. So it's lightweight,
+isolated, and great for testing uh dev
+environments like this. Once connected,
+MCP server the agent lists the tools
+available and then you can uh chat with
+it to interact with the MCP server. But
+let's say you decide to run your own
+instance of the server, maybe to be
+shared by multiple IDEs locally. Then
+you may run your server first and then
+configure the MCP client to connect to
+it via HTTP by providing a URL like
+this. In this case, the MCP client
+connects to the MCP server via HTTP. And
+what happens when the MCP server is
+hosted remotely by the vendor? Now, you
+can change the URL to point to the
+remote MCP server. Now, when you do that
+though, you want to make sure you take
+care of authentication, authorization,
+data privacy, and trustworthiness of
+that server because now you're sending
+your data to an external server that's
+managed by a third party. So, that's
+important to keep in mind. Now,
+continuing on, if you would like to
+connect your own AI agent or app that
+you're building, then you would use the
+Python SDK and build the interaction
+with the MTP server into your app. Now,
+here's a pseudo code. We'll look into uh
+this client code in a bit more detail um
+in a few minutes, but these are the
+different ways to connect to an existing
+MCP server. So, let's head over to the
+lab and practice using an MCP server. In
+this lab, we'll explore how to use and
+connect to an MCP server that already
+exists. So, let's begin. First, we have
+uh a multiple choice question. So, what
+are the transport modes supported in
+MCP? Um in this case, uh there are a few
+options, websocket and rest, HTTP and
+standard IO. And we know that the answer
+to this is HTTP and standard IO. So, I'm
+just going to select that and um go
+forward.
+The next question is, what files are
+present in the flight booking server
+directory? These questions are there to
+help you explore and understand the uh
+codebase as it exists today. So if you
+go here, you can see that there is a
+flight booking server directory already
+available and there are some files in
+it. So this is the server that's already
+exists. The answer to this is uh the
+third one is server.py and pipro.l.
+That's the correct answer.
+So the first step is to explore the
+flight booking server. So we have uh
+found the flight booking server
+directory. Now let's explore what's
+inside the server. py file. So if you go
+here and if you select server.py file,
+you can see the code uh in the file. Now
+don't worry about understanding this
+code for now because we're going to look
+at this uh in a few minutes. For now, we
+just have to take a quick look uh at the
+code. So coming back to this uh we're
+just going to proceed.
+Next step is to use uh root code. So
+root code is the uh chat extension
+that's available here. Um and this is
+already set up for you.
+So, I'm just going to um click on okay
+and proceed.
+All right. So, we're now going to test
+if root code is working properly. So,
+I'm just going to copy this prompt and
+paste it here and run it and we'll just
+see if it responds.
+All right. As you can see that it's uh
+responding to my request. Um so, I'm
+just going to uh continue.
+All right. So, in this step, the goal is
+to connect to the MCP server. So, we're
+going to go into root code uh plug-in
+and then go up to MCP servers at the
+top. And here you get to see uh edit
+project MCP. So, I'm just going to click
+on that
+and we can now copy and paste this MCP
+configuration file here. So, as you can
+see the command is uv and the arguments
+are uh run python server.py. And what
+this does is it runs the command uv run
+python server.py. So, it's basically
+just going to run that uh python server
+file. Now I'll come here and I'll
+refresh uh um the MCP servers. And as
+you can see uh the MCP server is
+detected here. You can uh see that the
+status is green. And if you expand this,
+you'll get to see uh the tools and
+resources that are available inside this
+MCP server.
+All right. So now uh we're going to
+activate and test it. So I'm going to
+click on done. And I have a prompt here
+that I can copy and paste.
+So what we're trying to do here is we're
+asking R code to search for flights from
+LAX to JFK using the flight booking
+server. So it's now going to detect the
+flight booking uh MCP server.
+And it's now going to ask me for
+approval. So I'm just going to click on
+approve.
+And as you can see it's completed the
+task. This means that the MCP server is
+working as expected. And click on okay.
+So there are a few more questions. I'll
+let you uh go through this and uh figure
+that out by yourself.
+We'll now see how to build an MCP
+server. So far, we've learned that MCP
+servers have three components:
+resources, tools, and prompts. Now, what
+would these be for our situation in our
+use case? So our MCP server must have
+resources such as list of airports and
+their details, flight statuses, caps,
+weather in the target locations, booking
+information, gate information, policies,
+and loyalty programs. These can be
+referred to when making decisions or
+taking actions. The tools are the
+actions we'd like the MCB server to
+perform such as search for flights, get
+flight details, create and edit
+bookings, check-in, uh select seats, add
+baggage, etc. And finally, we must
+define a set of prompts for finding the
+best flight, optimizing budget, handling
+disruption, etc. Once we are clear what
+we want to build, we can proceed to
+building the MCP server. The model
+context protocol site has some handy
+SDKs along with the specification. These
+can be used to simplify the development
+of the MCP servers. The SDKs can be
+found at modelcontextprotocol.io
+website under the SDK section. And let's
+start with a simple Python SDK. So the
+overall approach is to import the fast
+MCP library and initialize an MCP server
+from it. Uh we'll then uh define tools,
+resources and prompts which we will see
+uh in a minute. And finally run the
+server and specify a transport protocol
+either standard IO or HTTP. In this case
+it's set to standard IO and we can
+change to HTTP if required. Next we
+define resources. So resources as we
+discussed are defined as normal
+functions. In this case, we define a get
+airport uh info function that returns
+airport chords and we add a decorator at
+the top called mcp.tres resource and
+then that's what makes it a resource. We
+can then define other similar resources
+the same way. Next, we define tools.
+Tools are also functions that accept
+certain parameters from clients using
+which we search our internal database
+and return results. Adding a MCP tool uh
+decorator makes it an MCP tool. Next, we
+define prompts. Prompts are predefined
+prompts that can help the AI select the
+best flight based on conditions. This is
+best defined by the developers of the
+MCP server as they know best what is
+right way to prompt. This is also a
+function and at the top of the function
+we add a decorator called MCP.prompt.
+Now that we have coded the server, how
+do we run it? When creating the fast MCP
+server, there are different options such
+as creating a stateful server which is
+the default behavior or a stateless
+server by passing the stateless HTTP
+flag to true. And finally, while running
+the server, you may set transport to
+standard IO for standard IO or HTTP and
+specify a host and port. Or to be more
+specific, you may specify streamable
+HTTP that can stream the output. Well,
+let's head over to the lab and practice
+building an MCP server. Next, we'll see
+how to use the MCP inspector. So, before
+building a client to then test uh with
+the server, we could simply use the MCP
+inspector to test the server that we
+have built. To start an MCP inspector,
+run the npx command with the model
+context protocol/insspector language.
+This starts a web server. Then go to the
+URL that's given in the output of the
+command. The MCP inspector is a web
+interface that looks like this. Here you
+provide a URL to the MCP server. And
+then you can start uh listing prompts,
+tools, and resources using the
+navigation bar on the right. In this
+lab, we're going to explore developing
+an MCP server. So the lab starts with a
+number of multiple choice questions that
+helps you test your knowledge of the
+concepts you've learned so far. So this
+question for example asks what are the
+three main features exposed by an MCP
+server. Uh is it uh HTTP standard IO
+websocket? This we know is uh are the
+transport protocols um resources tools
+and prompts uh client server transport.
+We know that the answer to this is
+resources tools and prompts. So let's
+select that.
+And there are a few other multiple
+choice questions that I will let you uh
+go through and answer by yourselves. So
+I'm just going to skip those through for
+now.
+The first hands-on task is to set up the
+Python project for the flight booking
+server. The instructions are given here.
+So the first thing we need to do is open
+a terminal. So, I'm just going to open a
+terminal here
+and uh make sure we are in the CD home
+uh lab directory and the goal is to
+initialize the Python project using the
+UV init flight booking server command.
+So, I'm just going to run that and as
+you can see the project has been
+initialized and you can see the
+directory here. So there is a main py
+and then there's a readme uh file which
+is just a template.
+So we're now going to uh cd into the
+flight booking server directory and
+we're going to add the mcp cli using the
+uvad mcp command.
+What this does is it installs everything
+that's needed for us to build the mcp
+server.
+Now we're going to check our work.
+As you can see, all the tasks have been
+completed. Let's go to the next step.
+Now you'll see a server. py file staged
+here. So here you can see the first
+version of our server. py file. So we've
+already coded a little bit of it. For
+example, here you can see a function um
+called get airports. Uh this is imported
+from the mcp.server.fastmcp fast MCP and
+the MCP uh server is initialized here.
+So the task here is to open the
+server.py file in your project
+directory, find the get airports
+function and add the correct MCP
+resource uh decorator above it. Here you
+can see the information that's needed uh
+to be put in while configuring the MCP
+resource. So here we're going to add
+using the at MCP.resource resource and
+within the brackets we're going to
+specify uh the resource type and name as
+file and uh airports.
+Now we can go and check our work.
+All right. So that was successful. So
+the next question asks to um configure
+the MCP tool decorator the same way. So
+if you go here you can see that there
+are two additional functions added to
+the file. you have the search flights
+and create booking function and for this
+you must add the MCP tool decorator. So
+I'm going to let you do that yourself
+and if you find uh if you run into any
+difficulty you can always go to the
+solutions tab here and find the solution
+to the task. We're going to skip this
+for now. The next one is creating
+prompts. As you can see there are two
+functions added again. Uh these are the
+prompts and you're supposed to add
+prompts there. We now have the MCP
+server developed but we haven't
+configured it to work with the root code
+agent. For this to happen, you must uh
+follow the instructions given here. So
+once you have opened the root code
+agent, you must click on the MCP servers
+at the top. So this is basically the
+icon that's given here. So click on that
+and here you have edit global MCP uh and
+edit project level MCP. So in this case
+we want to edit the project MCP. So
+click on that and this opens up the
+local MCP.json file. Now we must copy
+the MCP.json file that's given here. And
+if you look into this here uh this is
+the name of the MCP server. So it's
+called flight booking. And then here you
+have the command and arguments and the
+current working directory. So this
+working directory is the same directory
+as the one that you see here. And um
+this command is the command that is used
+to run the Python project. So it's
+basically uv run python server.p py
+which runs this uh server.py file and
+that's basically it. So if you go back
+to the uh file uh to the root code here
+uh click on uh project MCP make sure
+it's saved and then go here and click on
+refresh MCP servers
+and uh this is how you confirm that it's
+working. So you can see that it's now
+listed the flight uh booking project and
+you can also see a green uh circle here
+which indicates that uh it's working and
+inside and if you look inside you'll be
+able to see the tools as well as the
+resources that are available. So you can
+see the file uh airports file that's
+listed here. All right. So next uh we
+can simply click on done.
+And now uh here is a test prompt that's
+available that you can paste in to see
+if as you can see R code wants to use a
+tool on the flight booking MCP server.
+So it's asking our permission to use the
+MCP tool. So we're going to approve it.
+It's now come back with the task. So
+it's identified two flights uh from LAX
+to JFK and their flight information. So
+this confirms that our MCP server is
+being used by root code. I will now let
+you explore the other prompts and uh
+play around with the MCP server. I'll
+see you back on the video.
+Let us now look at how to build an MCP
+client. As discussed earlier, a lot of
+agents support MCP clients
+automatically. So, ID tools like cursor
+and cloud code have a MCP.json
+configuration file that simply needs to
+be configured to point to the MCP
+servers. However, if you'd like to build
+your own AI agent, in that case, you
+might want to uh build the client from
+scratch. So, we now have this sample
+server created with uh tools, resources,
+and prompts. This is a super simple
+version of the server. The next step is
+to build a client. So, here's a super
+simple example of a client. So, we use
+the same fast MCP client library. uh we
+first connect to the server running on
+port 80 uh 80 on the HTTP uh protocol
+and uh we then list its available tools
+using the list tools command. We then
+call a specific tool such as the search
+flies tool and pass origin and
+destination and we can read a particular
+resource using the read resource method
+and get prompts using the get prompts
+method.
+Now let's understand uh a little bit
+more detail about the client. So we had
+learned that on the server side we have
+features like resources, tools and
+prompts. Similarly on the client side we
+have a few features as well such as
+roots uh sampling and elicitation. It's
+important to understand what these are
+before we proceed. But before that uh
+we're going to look at something more
+important and that's called the uh
+context. So context allow the server to
+talk back to the client maybe for giving
+updates or sharing progress etc. So
+let's say the client initiates a booking
+process that may be a longunning task.
+The server might want to send periodic
+updates to the client before the actual
+response is shared. So for this we use
+the context. So import context on your
+server. Then use the methods like info.
+You can send information level messages
+to the client and you may call uh report
+progress to report uh progress updates
+to the client. And you could use the
+debug uh message to send debug messages
+to the client. So we'll see a few more
+examples of these in the upcoming slide.
+So now that we know what contexts are,
+let's start with uh the client level
+features such as roots. So what are
+roots? Think of roots as folders on the
+client machine that the MCP server is
+allowed to see or interact with. They
+are like shared folders. So you expose
+to the server from your local file
+system. But what do you want to provide
+access to file system to the server?
+Some MCP tools like code llinters,
+compilers, file readers need access to
+real files, your project folders. Uh but
+for security, the server shouldn't have
+access to your entire machine. So the
+client says here are the safe folders or
+roots I'm willing to expose to the
+server. For this on the client side we
+define allowed roots and include that
+while creating client session. And on
+the server side we use the context.
+session.list roots method to get the
+list of roots allowed. Next is sampling.
+Now at times the server might want to
+interact with the LLM for specific
+reasons. For example, the server might
+want to send some resources to the LLM
+to summarize it. In such case the server
+does not interact with the LLM directly.
+Why? Because the server may be used by
+different clients and u we want the
+client to have control over the model
+selection token limits etc. The server
+is purely the logic and tool
+definitions. The client takes charge of
+LLM interactions and the and different
+clients may choose to do that
+differently. The server should be just a
+lightweight and decoupled from the
+entire AI infrastructure. So how is that
+done? On the client side, we need to
+define a sampling handler function and
+pass that in while creating the client
+object. On the server side, we can now
+send a message to the client using the
+context session.create message method
+and pass the sampling message and then
+return the response back to the server.
+Next is elicitation. At times, the
+server may want to interact with the end
+user to get more information to make a
+decision. For example, while making a
+decision to pick the best flight, the
+server may need to may need additional
+uh confirmation from the user to make
+sure the user is happy with the choice
+made. In that case, the server can send
+a message to the client to elicit a
+response from the end user. To implement
+this on the server side, we call the
+method context. With a message to the
+client, the client must have an
+elicitation call back handler defined
+and this is the handler that is
+responsible for fetching a response from
+the user. And while creating the client
+session, you must specify that
+elicitation call back handler. Well,
+let's head over to the lab and practice
+working with building an MCP client.
+Well, that's all for this video. In the
+next video, we'll discuss AI agents in
+action and we'll build our own custom AI
+agent using Lang Graph. So do subscribe
+to this channel to get notified when the
+new video is

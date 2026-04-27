@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 460" font-family="-apple-system, Helvetica, sans-serif">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#e8e8e8"/>
+    </marker>
+  </defs>
+  <rect width="900" height="460" fill="#0b1220"/>
+  <text x="450" y="36" text-anchor="middle" fill="#ffffff" font-size="22" font-weight="700">Deep Agents — atomic toolset for long-running work</text>
+
+  <!-- Parent agent -->
+  <rect x="320" y="80" width="260" height="80" rx="10" fill="#2a1e3a" stroke="#c084fc" stroke-width="2"/>
+  <text x="450" y="115" text-anchor="middle" fill="#ffffff" font-size="17" font-weight="700">Parent agent</text>
+  <text x="450" y="138" text-anchor="middle" fill="#c0c8d0" font-size="13">long system prompt + plan</text>
+
+  <!-- Tools row -->
+  <rect x="60" y="220" width="170" height="80" rx="8" fill="#1e2a3a" stroke="#4aa3ff"/>
+  <text x="145" y="250" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">file system</text>
+  <text x="145" y="270" text-anchor="middle" fill="#c0c8d0" font-size="11">offload context</text>
+  <text x="145" y="287" text-anchor="middle" fill="#c0c8d0" font-size="11">read/write/edit</text>
+
+  <rect x="250" y="220" width="170" height="80" rx="8" fill="#1e2a3a" stroke="#4aa3ff"/>
+  <text x="335" y="250" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">shell / bash</text>
+  <text x="335" y="270" text-anchor="middle" fill="#c0c8d0" font-size="11">run scripts</text>
+  <text x="335" y="287" text-anchor="middle" fill="#c0c8d0" font-size="11">general execution</text>
+
+  <rect x="440" y="220" width="170" height="80" rx="8" fill="#1e2a3a" stroke="#4aa3ff"/>
+  <text x="525" y="250" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">planning tool</text>
+  <text x="525" y="270" text-anchor="middle" fill="#c0c8d0" font-size="11">write/update todo</text>
+  <text x="525" y="287" text-anchor="middle" fill="#c0c8d0" font-size="11">stay on track</text>
+
+  <rect x="630" y="220" width="200" height="80" rx="8" fill="#1e2a3a" stroke="#4aa3ff"/>
+  <text x="730" y="250" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="700">sub-agent (task tool)</text>
+  <text x="730" y="270" text-anchor="middle" fill="#c0c8d0" font-size="11">isolate context</text>
+  <text x="730" y="287" text-anchor="middle" fill="#c0c8d0" font-size="11">spawn child agent</text>
+
+  <!-- arrows -->
+  <path d="M 380 160 L 200 215" stroke="#e8e8e8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 415 160 L 350 215" stroke="#e8e8e8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 485 160 L 540 215" stroke="#e8e8e8" stroke-width="2" marker-end="url(#arrow)"/>
+  <path d="M 520 160 L 700 215" stroke="#e8e8e8" stroke-width="2" marker-end="url(#arrow)"/>
+
+  <text x="450" y="370" text-anchor="middle" fill="#ffd166" font-size="14">~20 tools, very long system prompt</text>
+  <text x="450" y="395" text-anchor="middle" fill="#c0c8d0" font-size="12">Same shape as Claude Code, Manus, Deep Research.</text>
+  <text x="450" y="415" text-anchor="middle" fill="#c0c8d0" font-size="12">Move complexity into prompting, not into tool count.</text>
+</svg>
