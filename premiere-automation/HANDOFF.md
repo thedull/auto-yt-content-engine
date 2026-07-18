@@ -3,7 +3,7 @@
 > **Status:** Research complete, ready for implementation. Written 2026-07-18.
 > **For:** the next Claude Code session. Pick this up with:
 > *"Read `premiere-automation/HANDOFF.md` and guide me through the implementation, starting at Phase 0."*
-> **Research appendices:** [`research/01`](research/01-landscape-claude-premiere.md) (landscape) · [`research/02`](research/02-podcast-editing-operations.md) (podcast ops) · [`research/03`](research/03-premiere-scripting-surfaces.md) (scripting surfaces) · [`research/04`](research/04-mcp-server-evaluation.md) (MCP evaluation)
+> **Research appendices:** [`research/00`](research/00-gemini-seed.md) (original Gemini seed, annotated) · [`research/01`](research/01-landscape-claude-premiere.md) (landscape) · [`research/02`](research/02-podcast-editing-operations.md) (podcast ops) · [`research/03`](research/03-premiere-scripting-surfaces.md) (scripting surfaces) · [`research/04`](research/04-mcp-server-evaluation.md) (MCP evaluation)
 
 ---
 
@@ -11,13 +11,13 @@
 
 The user produces a **video podcast** and has little time to edit. The goal is a **live, conversational automation loop between Claude Code and Adobe Premiere** — like the 2025-26 YouTube demos where Claude removes silence, makes cuts, and assembles timelines directly in a running Premiere instance — tuned specifically for the recurring, mechanical parts of podcast post-production. Seamlessness is the top priority: after one-time setup, editing an episode should be a single skill invocation plus a human review pass.
 
-The original seed was a Gemini handoff titled **"Premiere Pro Live Automation Blueprint"** (https://share.gemini.google/bVjSyOVI7WIe). That URL was unreachable from the research environment (egress-blocked + JS-rendered), so this handoff was rebuilt from scratch via fresh research (July 2026). If the user pastes the Gemini text later, diff it against this document and fold in anything new — but this handoff is designed to be complete without it.
+The original seed was a Gemini handoff titled **"Premiere Pro Live Automation Blueprint"**, later recovered from the user and preserved (annotated, partially truncated) at [`research/00-gemini-seed.md`](research/00-gemini-seed.md). It independently proposes the same core architecture this handoff recommends — a persistent WebSocket bridge into a headless CEP panel executing ExtendScript — which is exactly the pattern the existing open-source MCP servers implement. Its unique contributions (the **bolt-cep** boilerplate, **types-for-adobe** typings, and the CEP Cookbook, for a build-your-own bridge) are folded into §5a below.
 
 **Guiding principle from the research:** automate the mechanical 80% (silence, filler, sync, captions, chapters, reframing, export), keep the human on the creative 20% (pacing, what to keep, final QC). Full automation of narrative judgment is not the goal and not currently achievable well.
 
 ## 2. TL;DR recommendation
 
-1. **Bridge:** install a community **Premiere MCP server using the CEP/ExtendScript bridge pattern** — it's what all the convincing live demos use, and it's the only pattern that reaches the QE DOM (ripple delete, razor, effects-by-name) needed for real editing. Pick the server by OS at Phase 0 (see §4 decision gates): macOS → `hetpatel-11/Adobe_Premiere_Pro_MCP` (278 tools, most verified, ships its own agent skill); Windows → `antipaster/Adobe-Premiere-Pro-MCP` (170+ tools, Windows installer) with `leancoderkavy/premiere-pro-mcp` (+ community windows-fix) as runner-up.
+1. **Bridge:** install a community **Premiere MCP server using the CEP/ExtendScript bridge pattern** — it's what all the convincing live demos use, and it's the only pattern that reaches the QE DOM (ripple delete, razor, effects-by-name) needed for real editing. Pick the server by OS at Phase 0 (see §4 decision gates): macOS → `hetpatel-11/Adobe_Premiere_Pro_MCP` (278 tools, most verified, ships its own agent skill); Windows → `antipaster/Adobe-Premiere-Pro-MCP` (170+ tools, Windows installer) with `leancoderkavy/premiere-pro-mcp` (+ community windows-fix) as runner-up. If none fit, build the bridge yourself per the Gemini blueprint (§5a — bolt-cep + WebSocket relay, wrapped as MCP).
 2. **Workflow:** build a **transcript-first editing pipeline** as a project skill (`/edit-podcast`): transcribe → Claude computes a cut list from the transcript + audio analysis → MCP bridge executes cuts on the live timeline → human reviews in Premiere → export via Media Encoder.
 3. **Fallback / zero-install path:** generate a rough-cut timeline as **FCP7 XML (via OpenTimelineIO)** and import it into Premiere — works with no plugin at all, survives cuts/placement/markers, and is the escape hatch whenever the bridge breaks on a Premiere point release.
 4. **Model tiering:** mechanical stages run on **Haiku/Sonnet subagents**; only creative judgment (what to cut, pacing, chapter titles, shorts selection) runs at the top tier. Encoded in §7.
@@ -76,6 +76,17 @@ Ask these before installing anything; they pick the concrete components:
    (writes `.mcp.json`; commit it with a placeholder path documented in the README).
 3. Smoke test in a **scratch project** (never the real episode): list project items → create a sequence → import a clip → razor at 10 s → ripple delete → add a marker → undo everything. Verify each step visually.
 4. Record working versions (Premiere build, server commit hash, CEP version) in `premiere-automation/VERSIONS.md`.
+
+### Phase 1-alt (§5a) — DIY bridge lane (the Gemini blueprint)
+
+Only take this lane if Phase 0 reveals the existing servers don't fit (unsupported Premiere build, both broken on the user's point release, or the user wants full ownership of the bridge). The [Gemini seed](research/00-gemini-seed.md) specifies it:
+
+- **Stack:** [bolt-cep](https://github.com/hyperbrew/bolt-cep) boilerplate (TypeScript, hot reload) → headless CEP panel holding a WebSocket client → local Express/WebSocket relay (`localhost:3000`/`8080`) → payloads executed via `csInterface.evalScript()`.
+- **Key references:** [Premiere Scripting Guide](https://ppro-scripting.docsforadobe.dev/) (Project/Sequence/TrackItem/QE objects) · [PProPanel sample](https://github.com/Adobe-CEP/Samples/tree/master/PProPanel) (canonical syntax for import/sequence/export) · [CEP Cookbook](https://github.com/Adobe-CEP/CEP-Resources) (lifecycle, permissions, Node integration) · [types-for-adobe](https://github.com/docsforadobe/Types-for-Adobe) (TypeScript defs for the ExtendScript DOM) · [bolt-uxp](https://github.com/hyperbrew/bolt-uxp) (future migration).
+- **One deliberate change from the seed:** wrap the relay as a small **MCP server** (stdio) instead of a raw `send-command.js` CLI dispatcher. Same transport underneath, but Claude Code then gets typed tools, discoverability, and its permission model, rather than shelling out raw `jsxCode` strings through Bash. Cherry-pick tool schemas/ExtendScript snippets from `leancoderkavy` or `antipaster` (MIT) rather than writing 200 tools from scratch.
+- The seed's code sections (`server.js`, panel client, dispatcher) and its "ExtendScript language standards" section were truncated in recovery — reconstruct from bolt-cep's examples and PProPanel; nothing essential is lost.
+
+Either lane ends at the same place: a Premiere MCP server registered at project scope, smoke-tested per Phase 1 step 3.
 
 ### Phase 2 — local analysis toolkit (~1 hour, one-time)
 
