@@ -112,6 +112,12 @@ Orchestrated stages, each resumable/idempotent (same pattern as `youtube-researc
 - After each episode, append lessons to the skill (words the user always keeps, pacing preferences, intro timing) — same self-improving-loop pattern as the rest of this repo.
 - Build the **OTIO fallback lane** the first time the bridge breaks (small Python script: cut-list JSON → `fcp_xml` via OpenTimelineIO; see research/03 §4 — cuts/placement/markers survive the import, effects don't).
 - Watch **`mhadifilms/prpr`** (headless UXP bridge, CLI-first, created 2026-07) as the migration target when CEP finally sunsets (announced windows range Sept 2026–"several years"; see research/03 §2). The skill's stage structure survives a bridge swap — only stage 4's tool calls change.
+- **Remotion lane (brand assets + shorts factory).** Once the core pipeline is stable, add [Remotion](https://www.remotion.dev/) (React-based programmatic video) for the template-shaped, data-driven graphics — *not* for editing the conversation itself, which stays in Premiere:
+  - **Episode intros/title cards**: one React comp parameterized by episode number/guest/topic; Claude fills props from the transcript, renders MP4, imports via the bridge (pattern proven by MauricePutinas's brand-intro MCP tool, research/04).
+  - **Lower thirds**: transparent overlays (ProRes 4444 / WebM alpha) dropped above the multicam track; restyled by editing code, versioned in git.
+  - **Shorts renderer (the sleeper win)**: render approved vertical shorts *entirely outside Premiere* — crop/reframe the source clip and burn word-level animated captions with [`@remotion/captions`](https://www.remotion.dev/docs/captions), consuming the same word-timed transcript the pipeline already produces. Bypasses the Auto Reframe → caption → export loop; shorts become fully unattended.
+  - Resources: [Remotion docs](https://www.remotion.dev/docs) · [templates gallery](https://www.remotion.dev/templates) (starting points for intro/lower-third comps) · license check: free for individuals and very small companies, paid company license beyond that ([terms](https://www.remotion.dev/license)).
+  - Adobe-native alternative if branding is static: MOGRTs via Essential Graphics, or bulk variations via the Firefly **Dynamic Graphics Render API** (research/03 §6).
 
 ## 6. Skills to build (summary)
 
@@ -119,8 +125,9 @@ Orchestrated stages, each resumable/idempotent (same pattern as `youtube-researc
 |---|---|---|
 | `podcast-audio-analysis` | Haiku (mechanical) | transcript + silence/filler candidates → JSON |
 | `edit-podcast` | orchestrator | Phases: ingest → analyze → propose → execute → polish → captions → review → export |
-| `podcast-shorts` (later) | mixed | from an edited episode: pick moments, Auto Reframe, export verticals |
+| `podcast-shorts` (later) | mixed | from an edited episode: pick moments (top tier), then either Auto Reframe in Premiere or the Remotion shorts renderer (Haiku) — see Phase 4 Remotion lane |
 | `podcast-shownotes` (later) | Sonnet | transcript → description, chapters, titles, social copy |
+| `podcast-brand-assets` (later) | Sonnet | Remotion comps for intros/title cards/lower thirds, parameterized per episode; renders imported via the bridge |
 
 ## 7. Model-tiering policy (bake into every skill)
 
