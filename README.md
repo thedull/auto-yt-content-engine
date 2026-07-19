@@ -115,16 +115,6 @@ Kept separate from the pipeline because the synthesis is heavy (~1 hour of model
 
 ---
 
-## Premiere automation (in progress)
-
-[`premiere-automation/HANDOFF.md`](./premiere-automation/HANDOFF.md) is a research-backed implementation handoff for a **Claude Code ↔ Adobe Premiere** live editing workflow (video-podcast post-production). Start a Claude Code session in this repo and say:
-
-> "Read `premiere-automation/HANDOFF.md` and guide me through the implementation, starting at Phase 0."
-
-Raw research evidence lives in [`premiere-automation/research/`](./premiere-automation/research/).
-
----
-
 ## Skill overview
 
 | Skill | Invoked as | What it does |
